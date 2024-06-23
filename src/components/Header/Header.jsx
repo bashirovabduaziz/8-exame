@@ -1,11 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 
-// images
 import Logo from "../../assets/Logo.svg";
 
-// Links
+import { Links } from "../../static/Links";
 
-// icons
 import { FaRegUser } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import { BsCart2 } from "react-icons/bs";
@@ -13,9 +11,13 @@ import { BsFillBarChartFill } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { FiPhone } from "react-icons/fi";
 
-// for lazy loading
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import SearchComp from "./SearchComp";
 
+import HeaderForPhone from "./HeaderForPhone";
+import NavbarForPhone from "./NavbarForPhone";
 import { useEffect, useState } from "react";
+import LoginModal from "./LoginModal";
 
 const Header = () => {
   const [userData, setUserData] = useState(null);
@@ -25,7 +27,6 @@ const Header = () => {
     setUserData(data);
   }, [localStorage.getItem("UserInformation")]);
 
-  // Login Modal
   const [isOpen, setIsOpen] = useState(false);
 
   const handleLoginModal = () => {
@@ -75,21 +76,21 @@ const Header = () => {
                 <span className="mt-1 hidden lg:block">Войти</span>
               </button>
               <NavLink
-                to={"favorite"}
+                to={"wishlist"}
                 className="flex flex-col items-center text-[#7A7687] hover:text-[#07745e]"
               >
                 <FaHeart size={23} />
                 <span className="mt-1 hidden lg:block">Избранное</span>
               </NavLink>
               <NavLink
-                to={"compare"}
+                to={"comparison"}
                 className="flex flex-col items-center text-[#7A7687] hover:text-[#07745e]"
               >
                 <BsFillBarChartFill size={23} />
                 <span className="mt-1 hidden lg:block">Сравнить</span>
               </NavLink>
               <NavLink
-                to={"korzina"}
+                to={"cart"}
                 className="flex flex-col items-center text-[#7A7687] hover:text-[#07745e]"
               >
                 <BsCart2 size={23} />

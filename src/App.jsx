@@ -24,10 +24,14 @@ import Services from './pages/Services/Services'
 import Stock from './pages/Stock/Stock'
 import Vacancies from './pages/Vacancies/Vacancies'
 import Wishlist from './pages/Wishlist/Wishlist'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 const App = () => {
   return (
    <>
+   <div className='bg-[#F8F7F3]'>
+    <Header />
    <div>
     <Routes>
       <Route path='/' element={<Home />} />
@@ -60,6 +64,8 @@ const App = () => {
 
 
     </Routes>
+   </div>
+   <Footer />
    </div>
    </>
   )

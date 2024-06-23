@@ -1,0 +1,80 @@
+import React, { useRef } from "react";
+import Slider from "react-slick";
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import heroImg from "../../assets/heroImg22.png";
+import MobileImg from "../../assets/Banner1.png";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+export default function Hero() {
+  const sliderRef = useRef(null);
+
+  const next = () => {
+    sliderRef.current.slickNext();
+  };
+
+  const previous = () => {
+    sliderRef.current.slickPrev();
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,  // Avtomatik ravishda slayderni o'zgartirish
+    autoplaySpeed: 1700,  // Avtomatik ravishda slayderni o'zgartirish tezligi (millisekundda)
+    arrows: false,
+  };
+  
+  return (
+    <div className="relative max-w-[1300px] mx-auto my-5 px-5">
+      <Slider ref={sliderRef} {...settings}>
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="w-full h-[250px] md:h-[350px] bg-[#E5E4ED] rounded-[10px] overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center h-full">
+              <div className="flex-1 p-5 max-w-[400px] md:max-w-[400px]">
+                <h1 className="text-[28px] md:text-[34px] font-medium text-[#202020] mb-4">
+                  Заголовок баннера в пару строк
+                </h1>
+                <p className="text-[12px] md:text-[16px] font-medium text-[#7A7687] mb-6">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </p>
+                <div className="flex gap-4">
+                  <button className="rounded-[50px] bg-[#088269] px-5 py-2 text-[14px] md:text-[16px] font-semibold text-[#F8F7F3]">
+                    Запросить цену
+                  </button>
+                  <button className="rounded-[50px] border-[2px] border-[#D5D1E1] px-5 py-2 text-[14px] md:text-[16px] font-semibold text-[#088269] hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6]">
+                    В каталог
+                  </button>
+                </div>
+              </div>
+              <div className="flex-1 h-full relative">
+                <img
+                  src={heroImg}
+                  alt="heroImg"
+                  className="absolute inset-0 w-full h-full object-cover "
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </Slider>
+      <div className="absolute bottom-6 right-10 flex gap-4">
+        <button
+          className="border-[1px] border-[#D5D1E1] rounded-full p-3 hover:border-[#07745E] duration-200 focus:bg-[#E1EFE6] hidden md:block bg-white"
+          onClick={previous}
+        >
+          <FaLongArrowAltLeft size={20} />
+        </button>
+        <button
+          className="border-[1px] border-[#D5D1E1] rounded-full p-3 hover:border-[#07745E] duration-200 focus:bg-[#E1EFE6] hidden md:block bg-white"
+          onClick={next}
+        >
+          <FaLongArrowAltRight size={20} />
+        </button>
+      </div>
+    </div>
+  );
+}
