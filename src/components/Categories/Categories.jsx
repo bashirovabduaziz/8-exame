@@ -26,13 +26,13 @@ const Categories = () => {
         {categoriesToShow.map((category, index) => (
           <div
             key={category.id}
-            className={`flex flex-col items-center border rounded-lg overflow-hidden shadow-lg ${index === 1 ? 'md:col-span-1 md:row-span-2 md:h-[517px] h-[200px]' : 'md:h-[250px] h-[200px]'}`}
+            className={`flex flex-col items-center border rounded-lg overflow-hidden shadow-lg ${index === 1 || index === 10 ? 'md:col-span-1 md:row-span-2 md:h-[517px] h-[200px]' : 'md:h-[250px] h-[200px]'}`}
           >
-            <div className={`overflow-hidden w-full object-cover bg-white ${index === 1 ? 'md:h-[466px] h-[150px]' : 'md:h-[200px] h-[150px]'}`}>
+            <div className={`overflow-hidden w-full object-cover bg-white ${index === 1 || index === 10 ? 'md:h-[466px] h-[150px]' : 'md:h-[200px] h-[150px]'}`}>
               <img
                 src={category.img}
                 alt={category.title}
-                className="object-cover md:ml-[40px]"
+                className={`object-cover md:ml-[40px] ${index === 10 ? 'md:mt-[130px] md:ml-[-10px]' : ''}`}
               />
             </div>
             <div className="mt-2 text-center">

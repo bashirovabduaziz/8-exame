@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import heroImg from "../../assets/heroImg22.png";
-import MobileImg from "../../assets/Banner1.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -23,8 +22,8 @@ export default function Hero() {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,  // Avtomatik ravishda slayderni o'zgartirish
-    autoplaySpeed: 1700,  // Avtomatik ravishda slayderni o'zgartirish tezligi (millisekundda)
+    autoplay: true,  
+    autoplaySpeed: 1700,  
     arrows: false,
   };
   
@@ -32,7 +31,7 @@ export default function Hero() {
     <div className="relative max-w-[1300px] mx-auto my-5 px-5">
       <Slider ref={sliderRef} {...settings}>
         {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="w-full h-[250px] md:h-[350px] bg-[#E5E4ED] rounded-[10px] overflow-hidden">
+          <div key={i} className="w-full h-[300px] md:h-[350px] bg-[#E5E4ED] rounded-[10px] overflow-hidden">
             <div className="flex flex-col md:flex-row items-center h-full">
               <div className="flex-1 p-5 max-w-[400px] md:max-w-[400px]">
                 <h1 className="text-[28px] md:text-[34px] font-medium text-[#202020] mb-4">
