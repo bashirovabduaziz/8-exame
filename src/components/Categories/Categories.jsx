@@ -1,11 +1,11 @@
 import { useState } from 'react'; 
 
 
-import { categories } from '../../static/Categories';
+import { productData } from '../../static/data';
 
 const Categories = () => {
   const [showAllCategories, setShowAllCategories] = useState(false); 
-  const categoriesToShow = showAllCategories ? categories : categories.slice(0, 7);
+  const categoriesToShow = showAllCategories ?productData.slice(0, 14) : productData.slice(0, 7);
 
   const toggleShowAllCategories = () => {
     setShowAllCategories(!showAllCategories);

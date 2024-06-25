@@ -10,7 +10,7 @@ const Compleks = () => {
         </h3>
       </div>
       <Complex />
-      <div className="mr-5 mt-5  flex flex-col justify-end gap-3 ml-[70px]  sm:flex-row md:mr-10">
+      <div className="mr-5 mt-5  flex flex-col justify-end gap-3 ml-[85px]  sm:flex-row md:mr-10">
         <button className="w-3/4 rounded-[50px] border-[1px] border-[#D5D1E1]  md:px-5 py-2 text-[12px] font-semibold text-[#088269] sm:w-auto sm:text-[14px] md:text-[16px]">
           Бесплатная консультация
         </button>

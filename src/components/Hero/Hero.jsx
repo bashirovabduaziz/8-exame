@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-import heroImg from "../../assets/heroImg22.png";
+import { carousel } from "../../static/Carousel"; // Adjust the path as needed
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -22,16 +22,16 @@ export default function Hero() {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,  
-    autoplaySpeed: 1700,  
+    autoplay: true,
+    autoplaySpeed: 1700,
     arrows: false,
   };
-  
+
   return (
     <div className="relative max-w-[1300px] mx-auto my-5 px-5">
       <Slider ref={sliderRef} {...settings}>
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="w-full h-[300px] md:h-[350px] bg-[#E5E4ED] rounded-[10px] overflow-hidden">
+        {carousel.map((item) => (
+          <div key={item.id} className="w-full h-[300px] md:h-[350px] bg-[#E5E4ED] rounded-[10px] overflow-hidden">
             <div className="flex flex-col md:flex-row items-center h-full">
               <div className="flex-1 p-5 max-w-[400px] md:max-w-[400px]">
                 <h1 className="text-[28px] md:text-[34px] font-medium text-[#202020] mb-4">
@@ -51,8 +51,8 @@ export default function Hero() {
               </div>
               <div className="flex-1 h-full relative">
                 <img
-                  src={heroImg}
-                  alt="heroImg"
+                  src={item.img}
+                  alt={`heroImg${item.id}`}
                   className="absolute inset-0 w-full h-full object-cover "
                 />
               </div>

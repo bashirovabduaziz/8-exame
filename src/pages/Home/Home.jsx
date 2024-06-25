@@ -3,6 +3,7 @@ import Hero from '../../components/Hero/Hero'
 import Categories from '../../components/Categories/Categories'
 import Compleks from '../../components/Complex/Compleks';
 import Cureer from '../../components/Cureer/Cureer';
+import Products from '../../components/Products/Products';
  
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
       <Categories />
       <Compleks />
       <Cureer />
+      <Products />
     </div>
   )
 }
