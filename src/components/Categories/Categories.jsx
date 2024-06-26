@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 
 import { productData } from '../../static/data';
+import { Link } from 'react-router-dom';
 
 const Categories = () => {
   const [showAllCategories, setShowAllCategories] = useState(false); 
@@ -24,10 +25,12 @@ const Categories = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {categoriesToShow.map((category, index) => (
+         
           <div
             key={category.id}
             className={`flex flex-col items-center border rounded-lg overflow-hidden shadow-lg ${index === 1 || index === 10 ? 'md:col-span-1 md:row-span-2 md:h-[517px] h-[200px]' : 'md:h-[250px] h-[200px]'}`}
           >
+            
             <div className={`overflow-hidden w-full object-cover bg-white ${index === 1 || index === 10 ? 'md:h-[466px] h-[150px]' : 'md:h-[200px] h-[150px]'}`}>
               <img
                 src={category.img}
@@ -36,9 +39,14 @@ const Categories = () => {
               />
             </div>
             <div className="mt-2 text-center">
-              <h2 className="text-sm font-medium">{category.title}</h2>
+            <Link to={`/single-product/${category.id}`} className=''>
+              <h2 className="text-sm font-medium w-[100px] overflow-hidden text-ellipsis whitespace-nowrap mt-[5px]">{category.title}</h2>
+              </Link>
             </div>
+           
+
           </div>
+        
         ))}
       </div>
     </div>
