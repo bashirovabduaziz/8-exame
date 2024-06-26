@@ -32,7 +32,7 @@ const Categories = () => {
               <img
                 src={category.img}
                 alt={category.title}
-                className={`object-cover md:ml-[40px] ${index === 10 ? 'md:mt-[130px] md:ml-[-10px]' : ''}`}
+                className={`object-cover md:ml-[40px] ${index === 10 ? 'md:h-[450px] h-[150px] ml-[30px]' : ''} ${index === 1 ? 'md:h-[500px] md:ml-[-20px]' : ''}`}
               />
             </div>
             <div className="mt-2 text-center">
