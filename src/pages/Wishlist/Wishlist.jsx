@@ -19,26 +19,26 @@ const Wishlist = () => {
         case 'Новинки':
           return 'border border-green-500 rounded-full p-[3px] text-green-500';
         case 'Хиты продаж':
-          return 'border border-blue-500 rounded-full p-[3px] text-blue-500';
+          return 'border border-blue-500 rounded-full p-[3px] text-blue-500 ';
         default:
           return '';
       }
     };
 
     const wishs = wishes.map((el) =>   <div className="px-1 md:px-2 mt-[5px] " key={el.id}>
-    <div className={`flex flex-col items-center rounded-[10px] border-[1px] md:h-[440px] h-[250px] gap-[20px]`}>
-      <div className="md:h-[280px] h-[250px] w-full items-center rounded-t-[10px] bg-white pt-[20px] flex flex-col">
+    <div className={`flex flex-col items-center rounded-[10px] border-[1px] md:h-[440px] h-[270px] gap-[20px]`}>
+      <div className="md:h-[280px] h-[270px] w-full items-center rounded-t-[10px] bg-white pt-[20px] flex flex-col">
         <div className={`flex  items-center md:w-[250px] justify-between w-[130px]`}>
-          <p className={` ${getCategoryClass(el.category)} text-[10px] md:text-[17px]` }>{el.category}</p>
-        <div className="gap-[6px] flex items-center">
-        <button className=""><IoBarChartOutline className="md:w-[25px] md:h-[25px]" /></button>
+          <p className={` ${getCategoryClass(el.category)} text-[5px] md:text-[17px]` }>{el.category}</p>
+        <div className="md:gap-[6px]  flex items-center">
+        <button className=""><IoBarChartOutline className="md:w-[25px] md:h-[25px] h-[10px] w-[10px]" /></button>
         <button onClick={() => dispatch(toggleToWishes(el))}> {
               wishes.some(w => w.id === el.id) ?
-                  <IoHeart className='md:w-[25px] md:h-[25px] text-green-500' /> :
-                  <IoHeartOutline className='md:w-[25px] md:h-[25px]' />
+                  <IoHeart className='md:w-[25px] md:h-[25px] h-[10px] w-[10px] text-green-500' /> :
+                  <IoHeartOutline className='md:w-[25px] md:h-[25px] h-[10px] w-[10px]' />
           }</button>
            <Link to={`/single-product/${el.id}`}>
-  <IoSearchOutline className='md:w-[25px] md:h-[25px]' />
+  <IoSearchOutline className='md:w-[25px] md:h-[25px] h-[5px] w-[5px]' />
 </Link>
         </div>
         </div>
