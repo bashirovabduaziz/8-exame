@@ -31,11 +31,11 @@ const Categories = () => {
             className={`flex flex-col items-center border rounded-lg overflow-hidden shadow-lg ${index === 1 || index === 10 ? 'md:col-span-1 md:row-span-2 md:h-[517px] h-[200px]' : 'md:h-[250px] h-[200px]'}`}
           >
             
-            <div className={`overflow-hidden w-full object-cover bg-white ${index === 1 || index === 10 ? 'md:h-[466px] h-[150px]' : 'md:h-[200px] h-[150px]'}`}>
+            <div className={`overflow-hidden w-full object-cover bg-white ${index === 1 || index === 10 ? 'md:h-[466px]  h-[150px]' : 'md:h-[200px] h-[150px]'}`}>
               <img
                 src={category.img}
                 alt={category.title}
-                className={`object-cover md:ml-[40px] ${index === 10 ? 'md:h-[450px] h-[150px] ml-[30px]' : ''} ${index === 1 ? 'md:h-[500px] md:ml-[-20px]' : ''}`}
+                className={`object-cover md:w-[150px] h-[150px] w-[150px] ml-[10px] lg:w-[200px]  md:ml-[20px] md:mt-[30px]  lg:ml-[40px] ${index === 10 ? 'md:h-[450px] lg:h-[450px] sm:h-[150px] sm:w-[150px] ml-[70px]' : ''} ${index === 1 ? 'md:h-[500px] md:ml-[-20px]' : ''}`}
               />
             </div>
             <div className="mt-2 text-center">

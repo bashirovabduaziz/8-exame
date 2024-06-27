@@ -8,7 +8,7 @@ const Brands = () => {
           <h2 className=" mb-[10px] text-[23px] font-medium text-[#202020] sm:text-[20px] md:mb-[25px] md:text-[30px]">
             Бренды
           </h2>
-          <p className="mb-4 text-[15px]  font-medium text-[#202020] opacity-[0.5] sm:text-[14px] md:text-[16px]">
+          <p className="mb-4 text-[13px]  font-medium text-[#202020] opacity-[0.5] sm:text-[14px] md:text-[16px]">
             Эксклюзивные поставщики
           </p>
         </div>

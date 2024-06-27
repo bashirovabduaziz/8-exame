@@ -9,7 +9,7 @@ export const productData = [
     {
         id:1,
         title: 'Анализатор мочи MIND UA-66',
-        img: `${Photo}`,
+        img: `https://global-mt.ru/upload/iblock/fac/2z16po15mw0bukk89j839sr5ra7m6kgx.jpg`,
         category: 'Новинки'    ,
         price: 300000    
     },
@@ -24,21 +24,21 @@ export const productData = [
     {
         id:3,
         title: 'Эндоскопия',
-        img: `${Photo2}`,
+        img: `https://global-mt.ru/upload/iblock/b39/0o4wfxmcinlhszb86sgnuymbxesi3w7g.jpg`,
         category: 'Новинки'    ,
         price: 392300  
     },
     {
         id:4,
         title: 'Оборудование для анастезиологии',
-        img: `${Photo4}`,
+        img: `https://global-mt.ru/upload/iblock/343/thhoixipw9z1qmr1d532z5xs0r698m68.jpg`,
         category: 'Новинки'    ,
         price: 56000      
     },
     {
         id:5,
         title: 'Для медицинской метрологии',
-        img: `${Photo5}`,
+        img: `https://global-mt.ru/upload/iblock/c5b/xtr9q6c9h5nsjdwx4tshrlt9v2eolok7.jpg`,
         category: 'Акции'      ,
         price: 220000 ,
         oldprice:224000         
@@ -46,14 +46,14 @@ export const productData = [
     {
         id:6,
         title: 'Мебель для медецинских целей',
-        img: `${Photo6}` ,
+        img: `https://global-mt.ru/upload/iblock/494/53etmyp7htuaqvlggjf0xu2aogn5iwn3.jpg` ,
         category: 'Хиты продаж',
         price: 23600       
     },
     {
         id:7,
         title: 'ЛОР оборудование',
-        img: `${Photo7}`,
+        img: `https://global-mt.ru/upload/iblock/b5e/grjkcyltbbdheo4e2kn9gila8zwh73v8.jpg`,
         category: 'Акции'      ,
         price: 402000,
         oldprice:401000  

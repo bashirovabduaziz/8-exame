@@ -43,7 +43,7 @@ function BrendsCarousel() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -52,7 +52,7 @@ function BrendsCarousel() {
 
   return (
     <div className="slider-container">
-      <div className="relative w-[95%] max-w-[900px]">
+      <div className="relative w-[95%] max-w-[900px] ">
         <Slider
           {...settings}
           ref={(slider) => {
