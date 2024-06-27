@@ -84,8 +84,8 @@ const ProductsData = ({ category }) => {
         
           {filteredProducts.map((el) => (
             <div className="px-1 md:px-2 mt-[5px] " key={el.id}>
-              <div className={`flex flex-col items-center rounded-[10px] border-[1px] md:h-[420px] lg:h-[440px] h-[270px] gap-[20px]`}>
-                <div className="lg:h-[280px] md:h-[260px] h-[270px] w-full items-center rounded-t-[10px] bg-white pt-[20px] flex flex-col">
+              <div className={`flex flex-col items-center rounded-[10px] border-[1px] md:h-[420px] lg:h-[440px] h-[280px] gap-[20px]`}>
+                <div className="lg:h-[280px] md:h-[260px] h-[280px] w-full items-center rounded-t-[10px] bg-white pt-[20px] flex flex-col">
                   <div className={`flex  items-center lg:w-[250px]  md:w-[200px] justify-between w-[130px]`}>
                     <p className={` ${getCategoryClass(el.category)} text-[8px] md:text-[17px]` }>{el.category}</p>
                   <div className="gap-[6px] flex items-center">
