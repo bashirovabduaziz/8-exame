@@ -15,7 +15,7 @@ const Categories = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-[1300px]">
       <div className='md:flex items-center justify-between py-[20px]'>
-        <h1 className='text-[26px]'>Популярные категории</h1>
+        <h1 className='mb-[10px] text-[23px] font-medium text-[#202020] sm:text-[20px] md:mb-[25px] md:text-[30px]'>Популярные категории</h1>
         <button
           className='rounded-full border-[1px] bg-[#088269] p-[9px] text-[#F8F7F3] lg:rounded-[50px] lg:px-5 lg:py-[11px] hover:bg-[#066753] duration-150'
           onClick={toggleShowAllCategories}

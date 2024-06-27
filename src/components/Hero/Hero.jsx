@@ -31,7 +31,7 @@ export default function Hero() {
     <div className="relative max-w-[1300px] mx-auto my-5 px-5">
       <Slider ref={sliderRef} {...settings}>
         {carousel.map((item) => (
-          <div key={item.id} className="w-full h-[300px] md:h-[350px] bg-[#E5E4ED] rounded-[10px] overflow-hidden">
+          <div key={item.id} className="w-full h-[400px] md:h-[350px] bg-[#E5E4ED] rounded-[10px] overflow-hidden">
             <div className="flex flex-col md:flex-row items-center h-full">
               <div className="flex-1 p-5 max-w-[400px] md:max-w-[400px]">
                 <h1 className="text-[28px] md:text-[34px] font-medium text-[#202020] mb-4">
@@ -50,10 +50,11 @@ export default function Hero() {
                 </div>
               </div>
               <div className="flex-1 h-full relative">
+                 <img src={item.img} alt=""  className="md:hidden"/>
                 <img
                   src={item.img}
                   alt={`heroImg${item.id}`}
-                  className="absolute inset-0 w-full h-full object-cover "
+                  className="absolute inset-0 w-full h-full  object-cover "
                 />
               </div>
             </div>

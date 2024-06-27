@@ -25,20 +25,20 @@ const Wishlist = () => {
       }
     };
 
-    const wishs = wishes.map((el) =>   <div className="px-1 md:px-2 mt-[5px] " key={el.id}>
+    const wishs = wishes.map((el) =>    <div className="px-1 md:px-2 mt-[5px] " key={el.id}>
     <div className={`flex flex-col items-center rounded-[10px] border-[1px] md:h-[440px] h-[270px] gap-[20px]`}>
       <div className="md:h-[280px] h-[270px] w-full items-center rounded-t-[10px] bg-white pt-[20px] flex flex-col">
         <div className={`flex  items-center md:w-[250px] justify-between w-[130px]`}>
-          <p className={` ${getCategoryClass(el.category)} text-[5px] md:text-[17px]` }>{el.category}</p>
-        <div className="md:gap-[6px]  flex items-center">
-        <button className=""><IoBarChartOutline className="md:w-[25px] md:h-[25px] h-[10px] w-[10px]" /></button>
+          <p className={` ${getCategoryClass(el.category)} text-[8px] md:text-[17px]` }>{el.category}</p>
+        <div className="gap-[6px] flex items-center">
+        <button className=""><IoBarChartOutline className="md:w-[25px] md:h-[25px] h-[14px] w-[14px]" /></button>
         <button onClick={() => dispatch(toggleToWishes(el))}> {
               wishes.some(w => w.id === el.id) ?
-                  <IoHeart className='md:w-[25px] md:h-[25px] h-[10px] w-[10px] text-green-500' /> :
-                  <IoHeartOutline className='md:w-[25px] md:h-[25px] h-[10px] w-[10px]' />
+                  <IoHeart className='md:w-[25px] md:h-[25px] h-[14px] w-[14px] text-green-500' /> :
+                  <IoHeartOutline className='md:w-[25px] md:h-[25px] h-[14px] w-[14px]' />
           }</button>
            <Link to={`/single-product/${el.id}`}>
-  <IoSearchOutline className='md:w-[25px] md:h-[25px] h-[5px] w-[5px]' />
+  <IoSearchOutline className='md:w-[25px] md:h-[25px] h-[14px] w-[14px]' />
 </Link>
         </div>
         </div>
@@ -49,8 +49,8 @@ const Wishlist = () => {
           {el.title}
         </p>
       <div className="flex items-end py-[10px]">
-      <p className="text-[14px] md:text-[18px]">{el.price}руб.</p>
-      <del className="text-red-500 md:text-[15px] text-[12px] ml-[5px]">{el.oldprice}</del>
+      <p className="text-[12px] md:text-[18px]">{el.price}руб.</p>
+      <del className="text-red-500 md:text-[14px] text-[8px] ml-[5px]">{el.oldprice}</del>
       </div>
       <button className=" rounded-[50px] border-[2px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[10px] md:text-[18px] py-[5px] text-[#202020] 
        hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]">Добавить в корзину</button>
@@ -62,7 +62,7 @@ const Wishlist = () => {
       <>
       <div className='mx-auto px-4 py-8 max-w-[1300px]  my-20 '>
         <h1 className="wishlist__title">Wishlist</h1>
-        <div className='flex items-center'>{wishs}</div>
+        <div className='flex items-center  w-[95%] max-w-[900px]'>{wishs}</div>
 
         </div>
       </>

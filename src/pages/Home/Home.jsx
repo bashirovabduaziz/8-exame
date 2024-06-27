@@ -4,6 +4,9 @@ import Categories from '../../components/Categories/Categories'
 import Compleks from '../../components/Complex/Compleks';
 import Cureer from '../../components/Cureer/Cureer';
 import Products from '../../components/Products/Products';
+import Clients from '../../components/Client/Clients';
+import Brands from '../../components/Brands/Brands';
+import Info from '../../components/Info/Info';
  
 
 const Home = () => {
@@ -19,6 +22,9 @@ const Home = () => {
       <Compleks />
       <Cureer />
       <Products />
+      <Clients />
+      <Brands />
+      <Info />
     </div>
   )
 }

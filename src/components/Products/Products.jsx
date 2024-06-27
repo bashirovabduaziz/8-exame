@@ -28,7 +28,7 @@ const ProductsData = ({ category }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed: 2000,
     cssEase: "linear",
     arrows: false,
     responsive: [
@@ -84,8 +84,8 @@ const ProductsData = ({ category }) => {
         
           {filteredProducts.map((el) => (
             <div className="px-1 md:px-2 mt-[5px] " key={el.id}>
-              <div className={`flex flex-col items-center rounded-[10px] border-[1px] md:h-[440px] h-[250px] gap-[20px]`}>
-                <div className="md:h-[280px] h-[250px] w-full items-center rounded-t-[10px] bg-white pt-[20px] flex flex-col">
+              <div className={`flex flex-col items-center rounded-[10px] border-[1px] md:h-[440px] h-[270px] gap-[20px]`}>
+                <div className="md:h-[280px] h-[270px] w-full items-center rounded-t-[10px] bg-white pt-[20px] flex flex-col">
                   <div className={`flex  items-center md:w-[250px] justify-between w-[130px]`}>
                     <p className={` ${getCategoryClass(el.category)} text-[8px] md:text-[17px]` }>{el.category}</p>
                   <div className="gap-[6px] flex items-center">
@@ -110,7 +110,7 @@ const ProductsData = ({ category }) => {
                 <p className="text-[12px] md:text-[18px]">{el.price}руб.</p>
                 <del className="text-red-500 md:text-[14px] text-[8px] ml-[5px]">{el.oldprice}</del>
                 </div>
-                <button className=" rounded-[50px] border-[2px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[8px] md:text-[18px] py-[5px] text-[#202020] 
+                <button className=" rounded-[50px] border-[2px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[10px] md:text-[18px] py-[5px] text-[#202020] 
                  hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]">Добавить в корзину</button>
                 </div>
               </div>
@@ -142,7 +142,7 @@ const Products = () => {
   return (
     <div className='mx-auto px-4 py-8 max-w-[1300px] md:flex my-20 md:justify-between'>
       <div>
-        <h1 className='text-[25px]'>Каталог товаров</h1>
+        <h1 className='mb-3 text-[18px] font-medium text-[#202020] sm:mb-9 sm:text-[20px] md:mb-10 md:text-[30px]'>Каталог товаров</h1>
         <div className='flex md:flex-col mt-[20px] gap-[8px] md:place-items-start text-[14px] md:text-[18px]'>
           <button className={`text-gray-400 ${selectedCategory === 'Все Категории' ? 'font-bold' : ''}`} onClick={() => setSelectedCategory('Все Категории')}>Все Категории</button>
           <button className={`text-gray-400 ${selectedCategory === 'Хиты продаж' ? 'font-bold' : ''}`} onClick={() => setSelectedCategory('Хиты продаж')}>Хиты продаж</button>
