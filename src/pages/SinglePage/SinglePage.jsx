@@ -44,8 +44,8 @@ const SinglePage = () => {
 
   return (
     <div className='mx-auto max-w-[1300px] px-5'>
-      <div className='lg:flex flex-col gap-[15px] sm:gap-5 md:gap-[60px] md:flex-col  md:justify-between py-[50px]  '>
-        <div className='lg:max-w-[800px] md:flex-col md:max-w-[1020px] max-w-[700px]  lg:h-[510px] md:h-[560px] h-[380px] bg-white border border-[#E5E2EE] rounded-xl overflow-hidden sm:flex-col sm:items-center  '>
+      <div className='lg:flex lg:flex-row sm:flex-col md:flex-col  gap-[15px] sm:gap-5 md:gap-[60px]    py-[50px]  '>
+        <div className='lg:w-[750px] md:flex-col md:max-w-[800px] max-w-[700px]  lg:h-[510px] md:h-[560px] h-[380px] bg-white border border-[#E5E2EE] rounded-xl overflow-hidden sm:flex-col sm:items-center  '>
           <div className='md:max-w-[700px] lg:max-w-[700px]  max-w-[300px] mx-auto  flex  justify-between  mt-[15px] items-center'>
           <p className={` ${getCategoryClass(product.category)}  text-[12px] lg:text-[20px] md:text-[18px]` }>{product.category}</p>
          <div className='flex sm:mr-[15px]'>
@@ -58,7 +58,7 @@ const SinglePage = () => {
          </div>
           </div>
           <img src={mainImg} alt={product.title} className="lg:w-[600px] w-[300px] md:w-[600px] md:h-[400px] mt-[30px] h-[250px] lg:h-[350px]  lg:mt-[30px] mx-auto block" />
-          <div className='max-w-[200px]  mx-auto  flex  justify-between lg:mt-[10px] lg:ml-[60px]   '>
+          <div className='max-w-[200px]  mx-auto  flex  justify-between lg:mt-[10px] lg:ml-[50px]   '>
             {thumbnails.map((thumb, index) => (
               <img 
                 key={index} 
@@ -70,8 +70,9 @@ const SinglePage = () => {
             ))}
           </div>
         </div>
-        <div>
-          
+        <div className='lg:max-w-[500px] mt-[20px]'>
+           <h1 className=' text-neutral-800 text-[20px]  md:text-[25px] lg:text-[28px] font-medium  leading-9'>{product.title}</h1>
+           
         </div>
       </div>
     </div>
