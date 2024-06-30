@@ -15,7 +15,7 @@ const Catalogs = () => {
      <div className='mx-auto lg:flex lg:justify-between w-full max-w-[1300px] px-5 py-10'>
         <div className='md:flex  md:flex-row justify-between flex-col'>
        <h1 className='lg:hidden py-[10px] text-[#202020] text-[22px] font-bold'> Популярные категории</h1>
-       <ul className='border-[2px] border-[#E5E2EE] h-[48px] w-[350px] p-[20px] rounded-[10px] lg:hidden overflow-hidden hover:h-[580px] '>
+       <ul className='border-[2px] border-[#E5E2EE] h-[48px] max-w-[350px] p-[20px] rounded-[10px] lg:hidden overflow-hidden hover:h-[580px] '>
             <li className="text-neutral-800 text-[18px] font-medium  leading-snug mt-[-10px] ">Направления</li>
             <hr  className='mt-[10px] border-[1px]'/>
             <li className="text-neutral-800 text-[17px] mt-[10px] font-normal  ">Реанимация</li>
