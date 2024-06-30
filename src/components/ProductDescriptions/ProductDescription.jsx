@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ClientCarousel from "../Client/ClientCarousel";
+import { Link } from "react-router-dom";
 
 const ProductDescription = () => {
   const [activeTab, setActiveTab] = useState("description");
@@ -26,7 +27,19 @@ const ProductDescription = () => {
             }`}
             onClick={() => setActiveTab("reviews")}
           >
-           Услуги и сервис
+          
+          Услуги и сервис
+          </li>
+          <li
+            className={`ml-4 cursor-pointer pb-2 ${
+              activeTab === "cureer"
+                ? "text-[#202020] font-bold border-b-[3px] border-[#07745E]"
+                : "text-[#7A7687]"
+            }`}
+            onClick={() => setActiveTab("cureer")}
+          >
+          
+Доставка и оплата
           </li>
         </ul>
       </div>
@@ -49,7 +62,30 @@ const ProductDescription = () => {
       )}
       {activeTab === "reviews" && (
         <div className="pt-[10px] py-[10px]  bg-white ">
+             <h3 className="text-[#3D3D3D] text-[18px] font-bold ml-[10px]">
+             Услуги и сервис
+            </h3>
+            <div className="mt-[10px]">
             <ClientCarousel />
+            </div>
+            <Link to='/catalog' className="w-[104px] ml-[43%] mt-[10px] h-[33px] px-5 py-2 bg-teal-700 rounded-[50px] justify-center items-center gap-2.5 inline-flex">
+<p className="text-stone-100 text-xs font-semibold leading-none">Все услуги</p>
+</Link>
+
+        </div>
+      )}
+       {activeTab === "cureer" && (
+        <div className="pt-[10px] py-[10px]  bg-white ">
+             <h3 className="text-[#3D3D3D] text-[18px] font-bold ml-[10px]">
+             Условия доставки и оплаты
+            </h3>
+            <p className="text-[#727272] font-normal text-[14px] ml-[10px] mt-[10px]">
+            Доставка по России осуществляется ведущими транспортными и курьерскими компаниями («Деловые линии», СДЭК, DPD и др.). Организуем доставку медоборудования любой логистической компанией, имеющей филиал в Москве.
+          </p>
+          <p className="text-[#727272] font-normal text-[14px] ml-[10px] mt-[10px]">
+          Работаем с юридическими и физическими лицами, индивидуальными предпринимателями. Безналичная оплата по договору и счету. Применяем кассовый аппарат при оплате товаров физическими лицами через кредитные учреждения.
+          </p>
+
         </div>
       )}
       <div className="h-[40px] border-t  p-[11px] md:p-[7px] border-gray-300">
@@ -59,6 +95,7 @@ const ProductDescription = () => {
             <li className="text-emerald-700 text-[10px] md:text-[16px] font-medium">Условия доставки</li>
             <li className="text-emerald-700 text-[10px] md:text-[16px] font-medium">Способы оплаты</li>
         </ul>
+
       </div>
     </div>
   );

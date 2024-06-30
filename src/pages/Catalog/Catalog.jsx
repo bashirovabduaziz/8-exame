@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Catalogs from '../../components/Catalogs/Catalogs';
 
 const Catalog = () => {
   useEffect(() => {
@@ -7,7 +8,9 @@ const Catalog = () => {
     }, []);
 
   return (
-    <div>Catalog</div>
+    <div>
+      <Catalogs />
+    </div>
   )
 }
 
