@@ -4,6 +4,12 @@ import { useParams } from 'react-router-dom';
 import { IoBarChartOutline, IoHeart, IoHeartOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleToWishes } from '../../context/wishlistSlice';
+import { Rating } from '@mui/material';
+import Products from '../../components/Products/Products';
+import Compleks from '../../components/Complex/Compleks';
+import Brands from '../../components/Brands/Brands';
+import Subscribe from '../../components/Subscribe/Subscribe';
+import ProductDescription from '../../components/ProductDescriptions/ProductDescription';
 
 const SinglePage = () => {
   const { id } = useParams();
@@ -43,6 +49,7 @@ const SinglePage = () => {
   };
 
   return (
+    <div>
     <div className='mx-auto max-w-[1300px] px-5'>
       <div className='lg:flex lg:flex-row sm:flex-col md:flex-col  gap-[15px] sm:gap-5 md:gap-[60px]    py-[50px]  '>
         <div className='lg:w-[750px] md:flex-col md:max-w-[800px] max-w-[700px]  lg:h-[510px] md:h-[560px] h-[380px] bg-white border border-[#E5E2EE] rounded-xl overflow-hidden sm:flex-col sm:items-center  '>
@@ -70,11 +77,32 @@ const SinglePage = () => {
             ))}
           </div>
         </div>
-        <div className='lg:max-w-[500px] mt-[20px]'>
+        <div className='lg:max-w-[400px] mt-[20px]'>
            <h1 className=' text-neutral-800 text-[20px]  md:text-[25px] lg:text-[28px] font-medium  leading-9'>{product.title}</h1>
-           
+          <div className='flex !items-center mt-[10px]'>
+          <Rating name="half-rating-read" className='' defaultValue={4} precision={1} readOnly />
+          <p className='text-[18px] ml-[10px] text-[#202020]'>4.0</p>
+          </div>
+          <p className='text-zinc-500 text-[16px] font-normal mt-[5px] '>Категория: Лабораторное оборудование</p>
+          <p className='text-zinc-500 text-[16px] font-normal mt-[5px] '>Производитель: Lorem</p>
+          <p className='text-zinc-500 text-[16px] font-normal mt-[5px] '>Артикул: 213134</p>
+          <p className='text-zinc-500 text-[16px] font-normal mt-[5px] '>В наличии</p>
+          <p className='text-neutral-800 text-[20px] mt-[20px] font-semibold'>{product.price} руб.</p>
+
+          <hr className='mt-[15px]' />
+          <p className='text-neutral-800 text-[20px] mt-[5px] font-semibold'>О товаре</p>
+          <p className='md:w-[441px] opacity-80 text-neutral-800 text-[15px] mt-[10px] font-medium'>Но синтетическое тестирование, в своём классическом представлении, допускает внедрение поэтапного и последовательного развития общества. В рамках спецификации современных стандартов, сторонники тоталитаризма в науке будут функционально разнесены.</p>
         </div>
       </div>
+      <ProductDescription />
+    </div>
+    
+    <Products />
+   
+    <Compleks />
+    <Brands />
+    <Subscribe />
+   
     </div>
   )
 }

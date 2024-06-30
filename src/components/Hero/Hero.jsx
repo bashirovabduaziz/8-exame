@@ -41,10 +41,10 @@ export default function Hero() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 </p>
                 <div className="flex gap-4">
-                  <button className="rounded-[50px] bg-[#088269] px-5 py-2 text-[14px] md:text-[16px] font-semibold text-[#F8F7F3]">
+                  <button className="rounded-[50px] bg-[#088269] px-5 py-2 text-[12px] md:text-[16px] font-semibold text-[#F8F7F3]">
                     Запросить цену
                   </button>
-                  <button className="rounded-[50px] border-[2px] border-[#D5D1E1] px-5 py-2 text-[14px] md:text-[16px] font-semibold text-[#088269] hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6]">
+                  <button className="rounded-[50px] border-[2px] border-[#D5D1E1] px-5 py-2 text-[12px] md:text-[16px] font-semibold text-[#088269] hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6]">
                     В каталог
                   </button>
                 </div>

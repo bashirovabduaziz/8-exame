@@ -110,7 +110,7 @@ const ProductsData = ({ category }) => {
                 <p className="text-[12px] md:text-[16px] lg:text-[18px]">{el.price}руб.</p>
                 <del className="text-red-500 md:text-[14px] text-[8px] ml-[5px]">{el.oldprice}</del>
                 </div>
-                <button className=" rounded-[50px] border-[2px] md:text-[14px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[10px] lg:text-[18px] py-[5px] text-[#202020] 
+                <button className=" rounded-[50px] border-[2px] md:text-[14px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] py-[5px] text-[#202020] 
                  hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]">Добавить в корзину</button>
                 </div>
               </div>
@@ -152,6 +152,7 @@ const Products = () => {
       </div>
       <div className="mt-[10px]">
         <ProductsData category={selectedCategory} />
+        
       </div>
     </div>
   );

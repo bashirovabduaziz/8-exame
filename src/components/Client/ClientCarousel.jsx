@@ -18,7 +18,7 @@ flex-col items-center rounded-[10px] border-[1px] border-[#E1DFE7]"
               className="mx-auto block md:w-[150px] md:h-[100px] w-[120px] h-[80px]"
             />
           </div>
-          <div className="rounded-b-[10px] bg-[#F8F7F3] px-[15px] py-[14px] sm:py-[15px] md:px-[20px] md:py-[20px]">
+          <div className="rounded-b-[10px] bg-[#F8F7F3] px-[15px] py-[14px] border-t  sm:py-[15px] md:px-[20px] md:py-[20px]">
             <p className="text-[12px] font-medium text-[#202020] sm:text-[14px] md:text-[16px]">
               {card.title}
             </p>

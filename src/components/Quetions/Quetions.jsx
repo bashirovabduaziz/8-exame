@@ -28,9 +28,7 @@ const Quetions = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    // Form submission logic here
-
-    // Reset the form fields
+    
     reset();
   };
 
