@@ -1,20 +1,16 @@
-import Wishes from "../../components/Wishes/Wishes"
-import React, { useEffect } from 'react'
-
-
+import Wishes from '../../components/Wishes/Wishes';
+import React, { useEffect } from 'react';
 
 const Wishlist = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-   
-    }, []);
+  }, []);
 
-  
-    return (
-     <div>
-        <Wishes />
-     </div>
-    )
-}
+  return (
+    <div>
+      <Wishes />
+    </div>
+  );
+};
 
-export default Wishlist
+export default Wishlist;

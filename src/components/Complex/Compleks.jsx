@@ -1,5 +1,5 @@
-import React from 'react'
-import Complex from './Complex'
+import React from 'react';
+import Complex from './Complex';
 
 const Compleks = () => {
   return (
@@ -19,7 +19,7 @@ const Compleks = () => {
         </button>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Compleks
+export default Compleks;

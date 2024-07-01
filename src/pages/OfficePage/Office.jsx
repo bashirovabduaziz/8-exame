@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 const Office = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-   
-    }, []);
+  }, []);
 
-  return (
-    <div>Office</div>
-  )
-}
+  return <div>Office</div>;
+};
 
-export default Office
+export default Office;

@@ -1,4 +1,4 @@
-import NewsCarousel from "./NewsCarousel";
+import NewsCarousel from './NewsCarousel';
 
 const News = () => {
   return (

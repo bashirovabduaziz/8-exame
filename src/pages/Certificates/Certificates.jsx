@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 const Certificates = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-   
-    }, []);
+  }, []);
 
-  return (
-    <div>Certificates</div>
-  )
-}
+  return <div>Certificates</div>;
+};
 
-export default Certificates
+export default Certificates;

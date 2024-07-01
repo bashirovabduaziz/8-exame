@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import Catalogs from '../../components/Catalogs/Catalogs';
 import Compleks from '../../components/Complex/Compleks';
 import Cureer from '../../components/Cureer/Cureer';
@@ -9,8 +9,7 @@ import News from '../../components/News/News';
 const Catalog = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-   
-    }, []);
+  }, []);
 
   return (
     <div>
@@ -21,7 +20,7 @@ const Catalog = () => {
       <Brands />
       <News />
     </div>
-  )
-}
+  );
+};
 
-export default Catalog
+export default Catalog;

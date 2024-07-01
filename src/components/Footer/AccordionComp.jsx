@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const AccordionComp = ({ title }) => {
   const [expanded, setExpanded] = useState(false);
@@ -35,8 +35,8 @@ const AccordionComp = ({ title }) => {
             aria-labelledby="faqs-title-01"
             className={`grid overflow-hidden text-sm text-white transition-all duration-300 ease-in-out ${
               expanded
-                ? "grid-rows-[1fr] opacity-100"
-                : "grid-rows-[0fr] opacity-0"
+                ? 'grid-rows-[1fr] opacity-100'
+                : 'grid-rows-[0fr] opacity-0'
             }`}
           >
             <div className="overflow-hidden">

@@ -1,10 +1,10 @@
-import React from 'react'
-import {cureerData} from '../../static/Cureer'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import React from 'react';
+import { cureerData } from '../../static/Cureer';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Cureer = () => {
   return (
-    <div className='mx-auto w-full max-w-[1300px] px-5 py-[50px]'>
+    <div className="mx-auto w-full max-w-[1300px] px-5 py-[50px]">
       <h3 className="mb-2 text-[18px] font-medium  text-[#202020] md:mb-[30px] md:text-[20px] xl:mb-10 xl:text-[30px]">
         Почему выбирают нас?
       </h3>
@@ -26,7 +26,7 @@ const Cureer = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cureer
+export default Cureer;

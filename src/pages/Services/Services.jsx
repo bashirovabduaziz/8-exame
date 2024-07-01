@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 const Services = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-   
-    }, []);
+  }, []);
 
-  return (
-    <div>Services</div>
-  )
-}
+  return <div>Services</div>;
+};
 
-export default Services
+export default Services;

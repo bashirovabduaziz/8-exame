@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 const Blog = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-   
-    }, []);
+  }, []);
 
-  return (
-    <div>Blog</div>
-  )
-}
+  return <div>Blog</div>;
+};
 
-export default Blog
+export default Blog;

@@ -1,19 +1,19 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 const schema = yup.object().shape({
-  name: yup.string().required("Пожалуйста, введите ваше имя"),
+  name: yup.string().required('Пожалуйста, введите ваше имя'),
   phone: yup
     .string()
-    .matches(/^\d+$/, "Введите действительный номер телефона")
-    .required("Пожалуйста, введите ваш телефон"),
+    .matches(/^\d+$/, 'Введите действительный номер телефона')
+    .required('Пожалуйста, введите ваш телефон'),
   email: yup
     .string()
-    .email("Введите действительный email")
-    .required("Пожалуйста, введите ваш email"),
-  question: yup.string().required("Пожалуйста, введите ваш вопрос"),
+    .email('Введите действительный email')
+    .required('Пожалуйста, введите ваш email'),
+  question: yup.string().required('Пожалуйста, введите ваш вопрос'),
 });
 
 const Quetions = () => {
@@ -28,7 +28,7 @@ const Quetions = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    
+
     reset();
   };
 
@@ -53,39 +53,55 @@ const Quetions = () => {
           <input
             type="text"
             placeholder="Ваше имя"
-            {...register("name")}
+            {...register('name')}
             className="mb-2 text-[12px] text-[#7A7687] outline-none md:text-[14px]"
           />
           <hr className="mb-5" />
-          {errors.name && <span className="mb-2 block text-[13px] mt-[-20px] text-red-500">{errors.name.message}</span>}
-          
+          {errors.name && (
+            <span className="mb-2 block text-[13px] mt-[-20px] text-red-500">
+              {errors.name.message}
+            </span>
+          )}
+
           <input
             type="number"
             placeholder="Ваш телефон"
-            {...register("phone")}
+            {...register('phone')}
             className="mb-2 text-[12px] text-[#7A7687] outline-none md:text-[14px]"
           />
           <hr className="mb-5" />
-          {errors.phone && <span className="mb-2 block text-[13px] mt-[-20px] text-red-500">{errors.phone.message}</span>}
-          
+          {errors.phone && (
+            <span className="mb-2 block text-[13px] mt-[-20px] text-red-500">
+              {errors.phone.message}
+            </span>
+          )}
+
           <input
             type="email"
             placeholder="Ваш email"
-            {...register("email")}
+            {...register('email')}
             className="mb-2 text-[12px] text-[#7A7687] outline-none md:text-[14px]"
           />
           <hr className="mb-5" />
-          {errors.email && <span className="mb-2 block text-[13px] mt-[-20px] text-red-500">{errors.email.message}</span>}
-          
+          {errors.email && (
+            <span className="mb-2 block text-[13px] mt-[-20px] text-red-500">
+              {errors.email.message}
+            </span>
+          )}
+
           <input
             type="text"
             placeholder="Ваш вопрос"
-            {...register("question")}
+            {...register('question')}
             className="mb-10 text-[12px] text-[#7A7687] outline-none md:text-[14px]"
           />
           <hr className="mb-5" />
-          {errors.question && <span className="mb-2 block text-[13px] mt-[-20px] text-red-500">{errors.question.message}</span>}
-          
+          {errors.question && (
+            <span className="mb-2 block text-[13px] mt-[-20px] text-red-500">
+              {errors.question.message}
+            </span>
+          )}
+
           <div className="flex flex-col items-center gap-2 md:flex-row">
             <button
               type="submit"
@@ -94,8 +110,11 @@ const Quetions = () => {
               Отправить
             </button>
             <p className="text-[12px] font-medium text-[#7A7687]">
-              Нажимая «Отправить», я соглашаюсь c обработкой персональных данных на условиях{" "}
-              <span className="text-[#088269]">Политики конфиденциальности.</span>
+              Нажимая «Отправить», я соглашаюсь c обработкой персональных данных
+              на условиях{' '}
+              <span className="text-[#088269]">
+                Политики конфиденциальности.
+              </span>
             </p>
           </div>
         </form>

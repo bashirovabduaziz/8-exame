@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import SearchComp from "./SearchComp";
+import SearchComp from './SearchComp';
 
-import Logo from "../../assets/Logo.svg";
+import Logo from '../../assets/Logo.svg';
 
-import { RiCloseFill } from "react-icons/ri";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { FiPhone } from "react-icons/fi";
+import { RiCloseFill } from 'react-icons/ri';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { FiPhone } from 'react-icons/fi';
 
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useState } from "react";
-import HamburgerModal from "./HamburgerModal";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useState } from 'react';
+import HamburgerModal from './HamburgerModal';
 
 const HeaderForPhone = () => {
   const [openMenu, setOpenMenu] = useState(false);

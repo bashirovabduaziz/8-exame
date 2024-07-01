@@ -1,4 +1,4 @@
-import BrendsCarousel from "./BrandsCarousel";
+import BrendsCarousel from './BrandsCarousel';
 
 const Brands = () => {
   return (

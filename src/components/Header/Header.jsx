@@ -1,31 +1,31 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from 'react-router-dom';
 
-import Logo from "../../assets/Logo.svg";
+import Logo from '../../assets/Logo.svg';
 
-import { Links } from "../../static/Links";
+import { Links } from '../../static/Links';
 
-import { FaRegUser } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa6";
-import { BsCart2 } from "react-icons/bs";
-import { BsFillBarChartFill } from "react-icons/bs";
-import { CiLocationOn } from "react-icons/ci";
-import { FiPhone } from "react-icons/fi";
+import { FaRegUser } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa6';
+import { BsCart2 } from 'react-icons/bs';
+import { BsFillBarChartFill } from 'react-icons/bs';
+import { CiLocationOn } from 'react-icons/ci';
+import { FiPhone } from 'react-icons/fi';
 
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import SearchComp from "./SearchComp";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import SearchComp from './SearchComp';
 
-import HeaderForPhone from "./HeaderForPhone";
-import NavbarForPhone from "./NavbarForPhone";
-import { useEffect, useState } from "react";
-import LoginModal from "./LoginModal";
+import HeaderForPhone from './HeaderForPhone';
+import NavbarForPhone from './NavbarForPhone';
+import { useEffect, useState } from 'react';
+import LoginModal from './LoginModal';
 
 const Header = () => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const data = localStorage.getItem("UserInformation");
+    const data = localStorage.getItem('UserInformation');
     setUserData(data);
-  }, [localStorage.getItem("UserInformation")]);
+  }, [localStorage.getItem('UserInformation')]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -68,7 +68,7 @@ const Header = () => {
             <div className="flex gap-4">
               <button
                 className={`flex-col items-center text-[#7A7687] hover:text-[#07745e] ${
-                  userData ? "hidden" : "flex"
+                  userData ? 'hidden' : 'flex'
                 }`}
                 onClick={handleLoginModal}
               >
@@ -76,21 +76,21 @@ const Header = () => {
                 <span className="mt-1 hidden lg:block">Войти</span>
               </button>
               <NavLink
-                to={"wishlist"}
+                to={'wishlist'}
                 className="flex flex-col items-center text-[#7A7687] hover:text-[#07745e]"
               >
                 <FaHeart size={23} />
                 <span className="mt-1 hidden lg:block">Избранное</span>
               </NavLink>
               <NavLink
-                to={"comparison"}
+                to={'comparison'}
                 className="flex flex-col items-center text-[#7A7687] hover:text-[#07745e]"
               >
                 <BsFillBarChartFill size={23} />
                 <span className="mt-1 hidden lg:block">Сравнить</span>
               </NavLink>
               <NavLink
-                to={"cart"}
+                to={'cart'}
                 className="flex flex-col items-center text-[#7A7687] hover:text-[#07745e]"
               >
                 <BsCart2 size={23} />

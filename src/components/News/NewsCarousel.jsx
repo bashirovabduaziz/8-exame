@@ -1,10 +1,10 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { newsCard } from "../../static/News";
-import { useRef } from "react";
-import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { newsCard } from '../../static/News';
+import { useRef } from 'react';
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa';
 
 function NewsCarousel() {
   let sliderRef = useRef(null);
@@ -22,7 +22,7 @@ function NewsCarousel() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1500,
-    cssEase: "linear",
+    cssEase: 'linear',
     arrows: false,
     responsive: [
       {
@@ -63,7 +63,6 @@ function NewsCarousel() {
             <div key={card.id} className="px-2">
               <div className="rounded-[10px] border-[1px] border-[#E5E2EE]">
                 <LazyLoadImage
-                
                   src={card.src}
                   alt={card.title}
                   className="block w-full h-full rounded-t-[10px]"

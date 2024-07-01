@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 const Payment = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-   
-    }, []);
+  }, []);
 
-  return (
-    <div>Payment</div>
-  )
-}
+  return <div>Payment</div>;
+};
 
-export default Payment
+export default Payment;

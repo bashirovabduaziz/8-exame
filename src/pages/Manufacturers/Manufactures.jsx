@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 const Manufactures = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-   
-    }, []);
+  }, []);
 
-  return (
-    <div>Manufactures</div>
-  )
-}
+  return <div>Manufactures</div>;
+};
 
-export default Manufactures
+export default Manufactures;

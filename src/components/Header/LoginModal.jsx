@@ -1,6 +1,6 @@
-import { Dialog } from "@headlessui/react";
+import { Dialog } from '@headlessui/react';
 
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 function LoginModal({ isOpen, setIsOpen }) {
   const handleSubmit = (e) => {
@@ -9,9 +9,9 @@ function LoginModal({ isOpen, setIsOpen }) {
       email: e.target[0].value,
       password: e.target[1].value,
     };
-    localStorage.setItem("UserInformation", JSON.stringify(UserInformation));
+    localStorage.setItem('UserInformation', JSON.stringify(UserInformation));
     setIsOpen(false);
-    toast.success("Data saved to local storage😊");
+    toast.success('Data saved to local storage😊');
   };
 
   return (

@@ -1,20 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // icons
-import { GoArrowUpRight } from "react-icons/go";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { GoArrowUpRight } from 'react-icons/go';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 // images
-import LogoFooter from "../../assets/LogoFooter.svg";
-import WikiSvg from "../../assets/WikiSvg.svg";
-import TgSvg from "../../assets/TgSvg.svg";
-import WhatSappSvg from "../../assets/WhatSappSvg.svg";
-import masterCard from "../../assets/masterCard.svg";
-import visaCard from "../../assets/visaCard.svg";
-import mirCard from "../../assets/mirCard.svg";
+import LogoFooter from '../../assets/LogoFooter.svg';
+import WikiSvg from '../../assets/WikiSvg.svg';
+import TgSvg from '../../assets/TgSvg.svg';
+import WhatSappSvg from '../../assets/WhatSappSvg.svg';
+import masterCard from '../../assets/masterCard.svg';
+import visaCard from '../../assets/visaCard.svg';
+import mirCard from '../../assets/mirCard.svg';
 
 //component
-import AccordionComp from "./AccordionComp";
+import AccordionComp from './AccordionComp';
 
 const Footer = () => {
   return (
@@ -26,47 +26,21 @@ const Footer = () => {
             <div className="mb-2 h-[1px] w-full bg-[#F8F7F3]"></div>
             <div className="flex gap-10">
               <ul className="flex flex-col gap-1 text-[#F8F7F3]">
-                <li className="cursor-pointer">
-                  О компании
-                </li>
-                <li className="cursor-pointer">
-                  Сертификаты
-                </li>
-                <li className="cursor-pointer">
-                  Вакансии
-                </li>
-                <li className="cursor-pointer">
-                  Гарантии
-                </li>
-                <li className="cursor-pointer">
-                  Услуги
-                </li>
-                <li className="cursor-pointer">
-                  Акции
-                </li>
-                <li className="cursor-pointer">
-                  Доставка
-                </li>
+                <li className="cursor-pointer">О компании</li>
+                <li className="cursor-pointer">Сертификаты</li>
+                <li className="cursor-pointer">Вакансии</li>
+                <li className="cursor-pointer">Гарантии</li>
+                <li className="cursor-pointer">Услуги</li>
+                <li className="cursor-pointer">Акции</li>
+                <li className="cursor-pointer">Доставка</li>
               </ul>
               <ul className="flex flex-col gap-1 text-[#F8F7F3]">
-                <li className="cursor-pointer">
-                  Оплата
-                </li>
-                <li className="cursor-pointer">
-                  Возврат
-                </li>
-                <li className="cursor-pointer">
-                  FAQ
-                </li>
-                <li className="cursor-pointer">
-                  Лизинг
-                </li>
-                <li className="cursor-pointer">
-                  Отзывы
-                </li>
-                <li className="cursor-pointer">
-                  Блог
-                </li>
+                <li className="cursor-pointer">Оплата</li>
+                <li className="cursor-pointer">Возврат</li>
+                <li className="cursor-pointer">FAQ</li>
+                <li className="cursor-pointer">Лизинг</li>
+                <li className="cursor-pointer">Отзывы</li>
+                <li className="cursor-pointer">Блог</li>
               </ul>
             </div>
           </div>
@@ -75,47 +49,21 @@ const Footer = () => {
             <div className="mb-2 h-[1px] w-full bg-[#F8F7F3]"></div>
             <div className="flex gap-10">
               <ul className="flex flex-col gap-1 text-[#F8F7F3]">
-                <li className="cursor-pointer">
-                  Реанимация
-                </li>
-                <li className="cursor-pointer">
-                  Хирургия
-                </li>
-                <li className="cursor-pointer">
-                  Офтальмология
-                </li>
-                <li className="cursor-pointer">
-                  Лабораторная диагностика
-                </li>
-                <li className="cursor-pointer">
-                  Акушерство и Гинекология
-                </li>
-                <li className="cursor-pointer">
-                  Гистология
-                </li>
-                <li className="cursor-pointer">
-                  Косметология
-                </li>
+                <li className="cursor-pointer">Реанимация</li>
+                <li className="cursor-pointer">Хирургия</li>
+                <li className="cursor-pointer">Офтальмология</li>
+                <li className="cursor-pointer">Лабораторная диагностика</li>
+                <li className="cursor-pointer">Акушерство и Гинекология</li>
+                <li className="cursor-pointer">Гистология</li>
+                <li className="cursor-pointer">Косметология</li>
               </ul>
               <ul className="flex flex-col gap-1 text-[#F8F7F3]">
-                <li className="cursor-pointer">
-                  Орториноларингология
-                </li>
-                <li className="cursor-pointer">
-                  Рентгенология и томография
-                </li>
-                <li className="cursor-pointer">
-                  Стрерилизация
-                </li>
-                <li className="cursor-pointer">
-                  Физиотерапия и реабилитация
-                </li>
-                <li className="cursor-pointer">
-                  Функциональная диагностика
-                </li>
-                <li className="cursor-pointer ">
-                  Эндоскопия
-                </li>
+                <li className="cursor-pointer">Орториноларингология</li>
+                <li className="cursor-pointer">Рентгенология и томография</li>
+                <li className="cursor-pointer">Стрерилизация</li>
+                <li className="cursor-pointer">Физиотерапия и реабилитация</li>
+                <li className="cursor-pointer">Функциональная диагностика</li>
+                <li className="cursor-pointer ">Эндоскопия</li>
               </ul>
             </div>
           </div>
@@ -126,7 +74,7 @@ const Footer = () => {
               <address className="mb-5 not-italic">
                 <h3 className="text-[#F8F7F3]">Адрес:</h3>
                 <p className="text-[#F8F7F3]">
-                  г. Москва, ул. Московская, д. 35{" "}
+                  г. Москва, ул. Московская, д. 35{' '}
                 </p>
               </address>
               <Link
@@ -155,9 +103,9 @@ const Footer = () => {
           </Link>
           <p className="text-[#F8F7F3]">ООО «ГЛОБАЛ МЕДИКАЛ ТРЕЙД»</p>
         </div>
-        <AccordionComp title={"Покупателям"} />
-        <AccordionComp title={"Каталог"} />
-        <AccordionComp title={"Контакты"} />
+        <AccordionComp title={'Покупателям'} />
+        <AccordionComp title={'Каталог'} />
+        <AccordionComp title={'Контакты'} />
         <div className="mb-4 hidden h-[1px] w-full bg-[#E5E2EE] md:block"></div>
         <div className="flex flex-col justify-between  gap-10 md:flex-row md:gap-0">
           <div className="hidden flex-col gap-[5px] md:flex">
@@ -211,7 +159,7 @@ const Footer = () => {
                 alt="visaCard img"
                 width={49}
                 height={30}
-              />{" "}
+              />{' '}
               <LazyLoadImage
                 src={mirCard}
                 alt="mirCard img"

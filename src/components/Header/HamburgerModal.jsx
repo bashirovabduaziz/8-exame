@@ -1,11 +1,11 @@
-import { IoLocationOutline } from "react-icons/io5";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { IoLocationOutline } from 'react-icons/io5';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const HamburgerModal = ({ openMenu }) => {
   return (
     <div
       className={`${
-        openMenu ? "block" : "hidden"
+        openMenu ? 'block' : 'hidden'
       } fixed left-0 top-[50px] z-10 h-screen w-screen bg-white`}
     >
       <div className="bg-[#E5E4ED]">

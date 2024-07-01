@@ -1,17 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 // icons
-import { BiHomeAlt } from "react-icons/bi";
-import { RiMenuSearchLine } from "react-icons/ri";
-import { BsCart2 } from "react-icons/bs";
-import { FaRegHeart } from "react-icons/fa";
-import { FaRegUser } from "react-icons/fa";
+import { BiHomeAlt } from 'react-icons/bi';
+import { RiMenuSearchLine } from 'react-icons/ri';
+import { BsCart2 } from 'react-icons/bs';
+import { FaRegHeart } from 'react-icons/fa';
+import { FaRegUser } from 'react-icons/fa';
 
 // compoents
-import LoginModal from "./LoginModal";
+import LoginModal from './LoginModal';
 
 // hooks
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 // navbar array
 const navbarLinksPhone = [
@@ -22,26 +22,26 @@ const navbarLinksPhone = [
         <BiHomeAlt size={20} />
       </>
     ),
-    title: "Главная",
-    to: "/",
+    title: 'Главная',
+    to: '/',
   },
   {
     id: 2,
     icon: <RiMenuSearchLine size={20} />,
-    title: "Каталог",
-    to: "catalog",
+    title: 'Каталог',
+    to: 'catalog',
   },
   {
     id: 3,
     icon: <BsCart2 size={20} />,
-    title: "Корзина",
-    to: "cart",
+    title: 'Корзина',
+    to: 'cart',
   },
   {
     id: 4,
     icon: <FaRegHeart size={20} />,
-    title: "Избранное",
-    to: "wishlist",
+    title: 'Избранное',
+    to: 'wishlist',
   },
 ];
 
@@ -49,9 +49,9 @@ const NavbarForPhone = () => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const data = localStorage.getItem("UserInformation");
+    const data = localStorage.getItem('UserInformation');
     setUserData(data);
-  }, [localStorage.getItem("UserInformation")]);
+  }, [localStorage.getItem('UserInformation')]);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   return (
@@ -72,7 +72,7 @@ const NavbarForPhone = () => {
           ))}
           <button
             className={`group  flex-col items-center gap-1 ${
-              userData ? " hidden" : " flex"
+              userData ? ' hidden' : ' flex'
             }`}
             onClick={() => setIsOpenModal(true)}
           >

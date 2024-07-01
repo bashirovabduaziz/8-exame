@@ -1,14 +1,14 @@
 // src/components/Complex.js
-import React, { useRef } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { complexData } from "../../static/Complex"; // Adjusted import path for complexData
+import React, { useRef } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { complexData } from '../../static/Complex'; // Adjusted import path for complexData
 
 // icons
-import { FaLongArrowAltLeft } from "react-icons/fa";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltLeft } from 'react-icons/fa';
+import { FaLongArrowAltRight } from 'react-icons/fa';
 
 function Complex() {
   let sliderRef = useRef(null);
@@ -26,7 +26,7 @@ function Complex() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    cssEase: "linear",
+    cssEase: 'linear',
     responsive: [
       {
         breakpoint: 1024,

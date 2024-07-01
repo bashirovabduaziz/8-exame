@@ -1,4 +1,4 @@
-import {  InfoAccordion } from "./InfoAccordion";
+import { InfoAccordion } from './InfoAccordion';
 
 const Info = () => {
   return (
@@ -9,10 +9,10 @@ const Info = () => {
             Часто задоваемые вопросы
           </h3>
           <div className="flex w-full flex-col gap-4 sm:w-1/2">
-            <InfoAccordion title={"О компании"} />
-            <InfoAccordion title={"Преимущества сотрудников"} />
-            <InfoAccordion title={"Достижения компании"} />
-            <InfoAccordion title={"Карьерный рост"} />
+            <InfoAccordion title={'О компании'} />
+            <InfoAccordion title={'Преимущества сотрудников'} />
+            <InfoAccordion title={'Достижения компании'} />
+            <InfoAccordion title={'Карьерный рост'} />
           </div>
         </div>
       </div>

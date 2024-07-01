@@ -1,6 +1,6 @@
-import Marquee from "react-fast-marquee";
-import { client } from "../../static/Client";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Marquee from 'react-fast-marquee';
+import { client } from '../../static/Client';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ClientCarousel = () => (
   <Marquee>

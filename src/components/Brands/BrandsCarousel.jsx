@@ -1,10 +1,10 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { brands } from "../../static/Brands";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useRef } from "react";
-import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { brands } from '../../static/Brands';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useRef } from 'react';
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa';
 
 function BrendsCarousel() {
   let sliderRef = useRef(null);
@@ -22,7 +22,7 @@ function BrendsCarousel() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    cssEase: "linear",
+    cssEase: 'linear',
     arrows: false,
     responsive: [
       {

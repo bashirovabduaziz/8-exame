@@ -36,35 +36,35 @@ const App = () => {
 
   return (
     <>
-      <div className='bg-[#F8F7F3]'>
+      <div className="bg-[#F8F7F3]">
         {loading && <Loading />}
         <Header />
         <div>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/single-product/:id' element={<SinglePage />} />
-            <Route path='/article' element={<Article />} />
-            <Route path='/blog' element={<Blog />} />
-            <Route path='/brands' element={<Brands />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/catalog' element={<Catalog />} />
-            <Route path='/category' element={<Category />} />
-            <Route path='/certificates' element={<Certificates />} />
-            <Route path='/comparison' element={<Comparison />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/cureer' element={<Cureer />} />
-            <Route path='/faq' element={<Faq />} />
-            <Route path='/guarantees' element={<Guarantees />} />
-            <Route path='/manufactures' element={<Manufactures />} />
-            <Route path='/office' element={<Office />} />
-            <Route path='/payment' element={<Payment />} />
-            <Route path='/personal' element={<Personal />} />
-            <Route path='/reviews' element={<Reviews />} />
-            <Route path='/services' element={<Services />} />
-            <Route path='/stock' element={<Stock />} />
-            <Route path='/vacancies' element={<Vacancies />} />
-            <Route path='/wishlist' element={<Wishlist />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/single-product/:id" element={<SinglePage />} />
+            <Route path="/article" element={<Article />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/brands" element={<Brands />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="/certificates" element={<Certificates />} />
+            <Route path="/comparison" element={<Comparison />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cureer" element={<Cureer />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/guarantees" element={<Guarantees />} />
+            <Route path="/manufactures" element={<Manufactures />} />
+            <Route path="/office" element={<Office />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/personal" element={<Personal />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/stock" element={<Stock />} />
+            <Route path="/vacancies" element={<Vacancies />} />
+            <Route path="/wishlist" element={<Wishlist />} />
           </Routes>
         </div>
         <Footer />
