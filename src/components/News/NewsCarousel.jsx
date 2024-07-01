@@ -62,11 +62,12 @@ function NewsCarousel() {
           {newsCard.map((card) => (
             <div key={card.id} className="px-2">
               <div className="rounded-[10px] border-[1px] border-[#E5E2EE]">
-                <img
+                <LazyLoadImage
+                
                   src={card.src}
                   alt={card.title}
                   className="block w-full h-full rounded-t-[10px]"
-                  height={320}
+                  height={280}
                   effect="blur"
                 />
                 <div className="py-4 pl-3 md:py-5">

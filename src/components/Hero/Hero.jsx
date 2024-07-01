@@ -4,6 +4,8 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { carousel } from "../../static/Carousel"; // Adjust the path as needed
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import LazyLoad from 'react-lazyload';
+
 
 export default function Hero() {
   const sliderRef = useRef(null);
@@ -51,11 +53,14 @@ export default function Hero() {
               </div>
               <div className="flex-1 h-full relative">
                  <img src={item.img} alt=""  className="md:hidden"/>
-                <img
-                  src={item.img}
-                  alt={`heroImg${item.id}`}
-                  className="absolute inset-0 w-full h-full  object-cover "
-                />
+                 <LazyLoad height={400} once>
+                  
+  <img
+    src={item.img}
+    alt={`heroImg${item.id}`}
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+</LazyLoad>
               </div>
             </div>
           </div>

@@ -25,7 +25,7 @@ const Categories = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {categoriesToShow.map((category, index) => (
-          <div
+          <Link to={`/single-product/${category.id}`}
             key={category.id}
             className={`flex flex-col items-center border rounded-lg overflow-hidden ${index === 1 || index === 10 ? 'md:col-span-1 md:row-span-2 md:h-[517px] h-[200px]' : 'md:h-[250px] h-[200px]'}`}
           >
@@ -38,11 +38,10 @@ const Categories = () => {
               />
             </div>
             <div className="mt-2 text-center">
-              <Link to={`/single-product/${category.id}`} className=''>
+             
                 <h2 className="text-sm font-medium w-[100px] overflow-hidden text-ellipsis whitespace-nowrap mt-[5px]">{category.title}</h2>
-              </Link>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
