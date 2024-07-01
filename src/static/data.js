@@ -4,7 +4,7 @@ export const productData = [
     {
         id:1,
         title: 'Анализатор мочи MIND UA-66',
-        img: `https://global-mt.ru/upload/iblock/fac/2z16po15mw0bukk89j839sr5ra7m6kgx.jpg`,
+        img: `https://www.ciamedical.com/insights/content/uploads/2016/02/sss72.png` ,
         category: 'Новинки'    ,
         price: 300000 ,
         imgg:  'https://global-mt.ru/upload/iblock/21e/33n668qhh0ky5zkjwbwb9qjphbozskdl.png',
@@ -110,7 +110,7 @@ export const productData = [
     {
         id:11,
         title: 'Диакомс РМ-2',
-        img: `https://global-mt.ru/upload/iblock/a4b/84vuhast5808oq0an2ih27qevkqb8lwp.png`,
+        img: `https://global-mt.ru/upload/iblock/406/0aa589bak2o0bk7tg47ei9tjwl4qculf.jpg`,
         category: 'Новинки'    ,
         price: 320010,
         imgg:  'https://global-mt.ru/upload/iblock/21e/33n668qhh0ky5zkjwbwb9qjphbozskdl.png',
@@ -132,7 +132,8 @@ export const productData = [
     {
         id:13,
         title: 'ЭлМед Троакар по Красножену',
-        img: `https://www.ciamedical.com/insights/content/uploads/2016/02/sss72.png` ,
+       
+        img: `https://global-mt.ru/upload/iblock/fac/2z16po15mw0bukk89j839sr5ra7m6kgx.jpg`,
         category: 'Хиты продаж',
         price: 54860,
         imgg:  'https://global-mt.ru/upload/iblock/21e/33n668qhh0ky5zkjwbwb9qjphbozskdl.png',
@@ -163,7 +164,8 @@ export const productData = [
     {
         id:16,
         title: 'Кровать медицинская МЕГИ МСК-122',
-        img: `https://global-mt.ru/upload/iblock/343/thhoixipw9z1qmr1d532z5xs0r698m68.jpg`,
+        img: `https://global-mt.ru/upload/iblock/a4b/84vuhast5808oq0an2ih27qevkqb8lwp.png`,
+       
         category: 'Акции'      ,
         price: 84860,
           imgg:  'https://global-mt.ru/upload/iblock/21e/33n668qhh0ky5zkjwbwb9qjphbozskdl.png',
@@ -217,7 +219,7 @@ export const productData = [
     {
         id:21,
         title: 'Стоматологическая установка PD-852',
-        img: `https://global-mt.ru/upload/iblock/d10/dz087gckve0isg016ueeqh728qarqs0s/delphis_f.webp`,
+        img: `https://global-mt.ru/upload/iblock/23a/tatflbuw7bewixs2qq5vje1tz519sdqj.jpg`,
         category: 'Хиты продаж',
         price: 32500,
           imgg:  'https://global-mt.ru/upload/iblock/21e/33n668qhh0ky5zkjwbwb9qjphbozskdl.png',
@@ -273,7 +275,8 @@ export const productData = [
     {
         id:26,
         title: 'Медицинский монитор Barco Eonis 24" (MDRC-2324)',
-        img: `https://global-mt.ru/upload/iblock/23a/tatflbuw7bewixs2qq5vje1tz519sdqj.jpg`,
+       
+        img: `https://global-mt.ru/upload/iblock/d10/dz087gckve0isg016ueeqh728qarqs0s/delphis_f.webp`,
         category: 'Новинки'    ,
         price: 420240 ,
           imgg:  'https://global-mt.ru/upload/iblock/21e/33n668qhh0ky5zkjwbwb9qjphbozskdl.png',

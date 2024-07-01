@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { productData } from '../../static/data';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-import Compleks from '../Complex/Compleks';
-import Cureer from '../Cureer/Cureer';
-import Products from '../Products/Products';
-import Brands from '../Brands/Brands';
-import News from '../News/News';
+
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { CircularProgress } from '@mui/material';
@@ -14,6 +10,8 @@ import { CircularProgress } from '@mui/material';
 const Catalogs = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [openDirections, setOpenDirections] = useState(false); // State to track open/close of directions
+
   const itemsPerPage = 10;
 
   const offset = currentPage * itemsPerPage;
@@ -23,7 +21,11 @@ const Catalogs = () => {
   const handlePageClick = ({ selected }) => {
     setLoading(true);
     setCurrentPage(selected);
-    setTimeout(() => setLoading(false), 1000); 
+    setTimeout(() => setLoading(false), 1000);
+  };
+
+  const handleToggleDirections = () => {
+    setOpenDirections(!openDirections);
   };
 
   return (
@@ -31,25 +33,32 @@ const Catalogs = () => {
       <div className='mx-auto lg:flex lg:justify-between w-full max-w-[1300px] px-5 py-10'>
         <div className='md:flex md:flex-row justify-between flex-col'>
           <h1 className='lg:hidden py-[10px] text-[#202020] text-[22px] font-bold'>Популярные категории</h1>
-          <ul className='border-[2px] border-[#E5E2EE] h-[48px] max-w-[350px] p-[20px] rounded-[10px] lg:hidden overflow-hidden hover:h-[580px]'>
-            <li className="text-neutral-800 text-[18px] font-medium leading-snug mt-[-10px]">Направления</li>
-            <hr className='mt-[10px] border-[1px]' />
-            <li className="text-neutral-800 text-[17px] mt-[10px] font-normal">Реанимация</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Хирургия</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Офтальмология</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Лабораторная диагностика</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Акушерство и Гинекология</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Гистология</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Косметология</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Оториноларингология</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Рентгенология и томография</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Стерилизация</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Физиотерапия и реабилитация</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Функциональная диагностика</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Эндоскопия</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Новинки</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Распродажи</li>
-            <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Кабинеты под ключ</li>
+          <ul className={`lg:hidden max-w-[350px] ${openDirections ? 'md:w-[350px] max-w-[500px]' : ' max-w-[500px] md:w-[350px]'}`}> 
+            <li className="text-neutral-800 text-[18px] font-medium leading-snug border-[2px] border-[#E5E2EE] h-[48px] max-w-[350px] p-[10px] rounded-[10px] cursor-pointer" onClick={handleToggleDirections}>
+              Направления
+            </li>
+            {openDirections && (  
+              <li className='border-[2px] border-[#E5E2EE] p-[10px] rounded-[10px] mt-[5px]'>
+                <ul>
+                  <li className="text-neutral-800 text-[17px] font-normal">Реанимация</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Хирургия</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Офтальмология</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Лабораторная диагностика</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Акушерство и Гинекология</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Гистология</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Косметология</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Оториноларингология</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Рентгенология и томография</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Стерилизация</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Физиотерапия и реабилитация</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Функциональная диагностика</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Эндоскопия</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Новинки</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Распродажи</li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Кабинеты под ключ</li>
+                </ul>
+              </li>
+            )}
           </ul>
           <div className='hidden lg:block mt-[10px]'>
             <ul className='border-[2px] border-[#E5E2EE] h-[580px] w-[350px] p-[20px] rounded-[10px]'>
@@ -76,7 +85,7 @@ const Catalogs = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-[10px]">
           {loading ? (
-            <div className="flex justify-center items-center w-full h-[1000px] col-span-2 md:col-span-3">
+            <div className="flex justify-center items-center h-[1000px] w-full  col-span-2 md:col-span-3">
              <CircularProgress color="success" />
             </div>
           ) : (
@@ -92,7 +101,7 @@ const Catalogs = () => {
                     effect="blur"
                     width={index === 2 || index === 5 ? "100%" : "150px"}
                     height={index === 2 || index === 5 ? "100%" : "150px"}
-                    className={`object-cover ml-[10px] lg:w-[200px] md:ml-[20px] md:mt-[30px] lg:ml-[40px] ${index === 5 ? 'md:h-[400px] lg:h-[450px] !md:ml-[100px] sm:h-[150px] sm:w-[150px] lg:ml-[50px] lg:mt-[-1px]' : ''} ${index === 2 ? 'md:h-[400px] md:ml-[40px]' : ''}`}
+                    className={`object-cover ml-[10px] lg:w-[200px] w-[150px] h-[150px] md:ml-[20px] md:mt-[30px] lg:ml-[40px] ${index === 5 ? 'md:h-[400px]  ' : ''} ${index === 2 ? 'md:h-[400px]' : ''}`}
                   />
                 </div>
                 <div className="mt-2 text-center">
@@ -100,28 +109,26 @@ const Catalogs = () => {
                     <h2 className="text-sm font-medium w-[100px] overflow-hidden text-ellipsis whitespace-nowrap mt-[5px] ">{category.title}</h2>
                   </Link>
                 </div>
+              
               </div>
+              
             ))
           )}
           <ReactPaginate
-            className='flex items-center justify-center gap-[20px] lg:mt-[10px] max-w-[300px] mx-auto'
-            previousLabel={'← '}
-            nextLabel={'→'}
-            pageCount={pageCount}
-            onPageChange={handlePageClick}
-            containerClassName={'flex justify-center mt-8 space-x-4'}
-            previousLinkClassName={'p-[14px] border rounded-lg hover:bg-gray-200'}
-            nextLinkClassName={'p-[14px] border rounded-lg hover:bg-gray-200'}
-            disabledClassName={'pagination__link--disabled'}
-            activeClassName={'bg-green-500 text-white px-3 py-1 border rounded-lg'}
-          />
+                className='flex items-center justify-center gap-[20px] lg:mt-[10px] max-w-[500px] mx-auto'
+                previousLabel={'← '}
+                nextLabel={'→'}
+                pageCount={pageCount}
+                onPageChange={handlePageClick}
+                containerClassName={'flex justify-center mt-8 space-x-4'}
+                previousLinkClassName={'p-[14px] border rounded-lg hover:bg-gray-200'}
+                nextLinkClassName={'p-[14px] border rounded-lg hover:bg-gray-200'}
+                disabledClassName={'pagination__link--disabled'}
+                activeClassName={'bg-green-500 text-white px-3 py-1 border rounded-lg'}
+              />
         </div>
       </div>
-      <Compleks />
-      <Cureer />
-      <Products />
-      <Brands />
-      <News />
+     
     </div>
   );
 };
