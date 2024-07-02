@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AccordionComp = ({ title }) => {
   const [expanded, setExpanded] = useState(false);
@@ -41,7 +42,7 @@ const AccordionComp = ({ title }) => {
           >
             <div className="overflow-hidden">
               <ul className="flex flex-col gap-1">
-                <li>О компании</li>
+                <Link to={'/about'}>О компании</Link>
                 <li>Сертификаты</li>
                 <li>Вакансии</li>
                 <li>Гарантии</li>

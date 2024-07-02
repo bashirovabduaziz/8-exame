@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="mb-2 h-[1px] w-full bg-[#F8F7F3]"></div>
             <div className="flex gap-10">
               <ul className="flex flex-col gap-1 text-[#F8F7F3]">
-                <li className="cursor-pointer">О компании</li>
+                <Link to={'/about'} className="cursor-pointer">О компании</Link>
                 <li className="cursor-pointer">Сертификаты</li>
                 <li className="cursor-pointer">Вакансии</li>
                 <li className="cursor-pointer">Гарантии</li>
