@@ -7,6 +7,7 @@ import Info from '../../components/Info/Info';
 import Rules from '../../components/Cureer/Rules';
 import CureerMap from '../../components/Cureer/CureerMap';
 import CureerInfo from '../../components/Cureer/CureerInfo';
+import CureerQuestions from '../../components/Cureer/CureerQuestions';
 
 const Cureer = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const Cureer = () => {
     <Info />
     <CureerMap />
     <CureerInfo />
+    <CureerQuestions />
     <Subscribe />
   </div>;
 };

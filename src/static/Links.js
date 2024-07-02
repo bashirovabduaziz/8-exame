@@ -15,6 +15,7 @@ export const Links = [
   {
     id: 4,
     title: 'Услуги',
+    to: 'services'
   },
   {
     id: 5,

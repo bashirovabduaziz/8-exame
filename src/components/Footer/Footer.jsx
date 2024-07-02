@@ -32,7 +32,7 @@ const Footer = () => {
                 <li className="cursor-pointer">Гарантии</li>
                 <li className="cursor-pointer">Услуги</li>
                 <li className="cursor-pointer">Акции</li>
-                <li className="cursor-pointer">Доставка</li>
+                <Link to={'cureer'} className="cursor-pointer">Доставка</Link>
               </ul>
               <ul className="flex flex-col gap-1 text-[#F8F7F3]">
                 <li className="cursor-pointer">Оплата</li>
