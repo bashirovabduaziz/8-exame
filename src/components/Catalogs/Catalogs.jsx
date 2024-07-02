@@ -36,17 +36,15 @@ const Catalogs = () => {
             Популярные категории
           </h1>
           <ul
-            className={`lg:hidden max-w-[350px] ${openDirections ? 'md:w-[350px] max-w-[600px]' : ' max-w-[600px] md:w-[350px]'}`}
+            className={`lg:hidden max-w-[350px] ${openDirections ? 'z-10 relative md:w-[350px] max-w-[600px]' : ' max-w-[600px] md:w-[350px]'}`}
           >
             <li
-              className="text-neutral-800 text-[18px] font-medium leading-snug border-[2px] border-[#E5E2EE] h-[48px] max-w-[350px] p-[10px] rounded-[10px] cursor-pointer"
+              className= "mf:absolute md:w-[350px] text-neutral-800 text-[18px] font-medium leading-snug border-[2px] border-[#E5E2EE] h-[48px] max-w-[760px] p-[10px] rounded-[10px] cursor-pointer"
               onClick={handleToggleDirections}
             >
               Направления
-            </li>
-            {openDirections && (
-              <li className="border-[2px] border-[#E5E2EE] p-[10px] rounded-[10px] mt-[5px]">
-                <ul>
+              {openDirections && (
+              <li className="md:w-[350px] md:ml-[-12px] md:mt-[20px] border-[2px] bg-[#F8F7F3] border-[#E5E2EE]   p-[10px] rounded-[10px] mt-[5px] hidden md:block">
                   <li className="text-neutral-800 text-[17px] font-normal">
                     Реанимация
                   </li>
@@ -95,7 +93,59 @@ const Catalogs = () => {
                   <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
                     Кабинеты под ключ
                   </li>
-                </ul>
+              </li>
+            )}
+            </li>
+            {openDirections && (
+              <li className="border-[2px] border-[#E5E2EE] p-[10px] rounded-[10px] mt-[5px] block md:hidden">
+                  <li className="text-neutral-800 text-[17px] font-normal">
+                    Реанимация
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Хирургия
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Офтальмология
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Лабораторная диагностика
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Акушерство и Гинекология
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Гистология
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Косметология
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Оториноларингология
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Рентгенология и томография
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Стерилизация
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Физиотерапия и реабилитация
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Функциональная диагностика
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Эндоскопия
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Новинки
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Распродажи
+                  </li>
+                  <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">
+                    Кабинеты под ключ
+                  </li>
               </li>
             )}
           </ul>
