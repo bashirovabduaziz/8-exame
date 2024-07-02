@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleToWishes } from '../../context/wishlistSlice';
 import {
-  IoBarChartOutline,
-  IoHeart,
-  IoHeartOutline
+  
+  IoHeart
 } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';

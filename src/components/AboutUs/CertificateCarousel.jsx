@@ -61,14 +61,13 @@ function BrendsCarousel() {
         >
           {certificates.map((card) => (
             <div className="px-1 md:px-2" key={card.id}>
-              <div className="flex flex-col items-center rounded-[10px] border-[1px] border-[#E1DFE7]">
-                <div className="flex h-[280px] overflow-hidden  md:h-[350px] w-full items-center rounded-[10px] bg-white ">
+              <div className="flex flex-col items-center ">
+                
                   <LazyLoadImage
                     src={card.img}
                     alt={card.title}
-                    className="mx-auto block md:h-[350px] h-[250px]"
+                    className="mx-auto block h-[350px] "
                   />
-                </div>
                 
               </div>
             </div>

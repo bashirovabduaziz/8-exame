@@ -42,7 +42,7 @@ const Header = () => {
           <div className="mx-auto flex w-full max-w-[1300px] items-center justify-between px-5">
             <div className="flex items-center gap-3 text-[10px] xl:text-[12px]">
               <Link to={'/about'}>О компании</Link>
-              <p>Доставка</p>
+              <Link to={'/cureer'}>Доставка</Link>
               <p>Оплата</p>
               <p>Гарантии</p>
               <p>Блог</p>

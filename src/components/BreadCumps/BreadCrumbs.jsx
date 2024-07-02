@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import { IoIosArrowForward } from "react-icons/io";
 
 const BreadCrumbs = () => {
   const location = useLocation();
@@ -19,9 +19,9 @@ const BreadCrumbs = () => {
     });
 
   return (
-    <div className="my-6 breadcrumbs text-black flex items-center gap-[10px] max-w-[1300px] px-5  mx-auto ">
+    <div className="my-6 text-black flex items-center gap-[10px] max-w-[1300px] px-5  mx-auto ">
       <Link to={"/"} className="text-[#7A7687]">Главная</Link>
-      <span>{">"}</span>
+      <span><IoIosArrowForward /></span>
       {crumbs}
     </div>
   );
