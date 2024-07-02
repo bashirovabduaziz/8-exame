@@ -14,9 +14,10 @@ import {
   IoBarChartOutline,
   IoHeartOutline,
   IoHeart,
-  IoSearchOutline,
-  IoSearchSharp,
+ 
 } from 'react-icons/io5';
+import Favourites from '../../assets/favourites.svg'
+import Comparison from '../../assets/comparison.svg'
 import { toggleToWishes } from '../../context/wishlistSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -72,11 +73,11 @@ const ProductsData = ({ category }) => {
   const getCategoryClass = (category) => {
     switch (category) {
       case 'Акции':
-        return 'border border-red-500 rounded-full p-[3px] text-red-500';
+        return 'border border-[#855E00] rounded-full p-[3px] text-[#855E00] bg-orange-200';
       case 'Новинки':
-        return 'border border-green-500 rounded-full p-[3px] text-green-500';
+        return 'border border-[#088269] rounded-full p-[3px] text-[#088269] bg-green-50';
       case 'Хиты продаж':
-        return 'border border-blue-500 rounded-full p-[3px] text-blue-500';
+        return 'border border-[#59599A] rounded-full p-[3px] text-[#59599A] bg-indigo-100 ';
       default:
         return '';
     }
@@ -111,16 +112,16 @@ const ProductsData = ({ category }) => {
                       </p>
                       <div className="gap-[6px] flex items-center">
                         <button className="">
-                          <IoBarChartOutline className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
                         </button>
                         <button
                           onClick={() => dispatch(toggleToWishes(product))}
                         >
                           {' '}
                           {wishes.some((w) => w.id === product.id) ? (
-                            <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-green-500" />
+                            <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-[#088269]" />
                           ) : (
-                            <IoHeartOutline className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                            <img src={Favourites} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
                           )}
                         </button>
                       </div>

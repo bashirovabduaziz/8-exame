@@ -11,6 +11,8 @@ import LazyLoad from 'react-lazyload';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaTableCellsLarge } from "react-icons/fa6";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Favourites from '../../assets/favourites.svg'
+import Comparison from '../../assets/comparison.svg'
 
 const Wishes = () => {
   const wishes = useSelector((state) => state.wishlist.value);
@@ -23,11 +25,11 @@ const Wishes = () => {
   const getCategoryClass = (category) => {
     switch (category) {
       case 'Акции':
-        return 'border border-red-500 rounded-full p-[3px] text-red-500';
+        return 'border border-[#855E00] rounded-full p-[3px] text-[#855E00] bg-orange-200';
       case 'Новинки':
-        return 'border border-green-500 rounded-full p-[3px] text-green-500';
+        return 'border border-[#088269] rounded-full p-[3px] text-[#088269] bg-green-50';
       case 'Хиты продаж':
-        return 'border border-blue-500 rounded-full p-[3px] text-blue-500 ';
+        return 'border border-[#59599A] rounded-full p-[3px] text-[#59599A] bg-indigo-100 ';
       default:
         return '';
     }
@@ -47,14 +49,14 @@ const Wishes = () => {
               </p>
               <div className="gap-[6px] flex items-center">
                 <button className="">
-                  <IoBarChartOutline className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                  <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
                 </button>
                 <button onClick={() => dispatch(toggleToWishes(el))}>
                   {' '}
                   {wishes.some((w) => w.id === el.id) ? (
-                    <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-green-500" />
+                    <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-[#07745E]" />
                   ) : (
-                    <IoHeartOutline className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                    <img src={Favourites} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
                   )}
                 </button>
               </div>
@@ -116,15 +118,15 @@ const wishline = wishes.map((wish) => (
                 {wish.price}руб.
               </p>
             <div className="gap-[6px] flex items-center mt-[10px]">
-                <button className="">
-                  <IoBarChartOutline className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+            <button className="">
+                  <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
                 </button>
                 <button onClick={() => dispatch(toggleToWishes(wish))}>
                   {' '}
                   {wishes.some((w) => w.id === wish.id) ? (
-                    <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-green-500" />
+                    <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-[#07745E]" />
                   ) : (
-                    <IoHeartOutline className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                    <img src={Favourites} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
                   )}
                 </button>
                 <button

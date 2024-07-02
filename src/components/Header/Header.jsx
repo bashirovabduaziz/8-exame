@@ -1,13 +1,15 @@
 import { Link, NavLink } from 'react-router-dom';
 
 import Logo from '../../assets/Logo.svg';
+import Vector from '../../assets/Vector.svg'
+import Favourites from '../../assets/favourites.svg'
+import Comparison from '../../assets/comparison.svg'
+import Basket from '../../assets/basket.svg'
+
 
 import { Links } from '../../static/Links';
 
-import { FaRegUser } from 'react-icons/fa';
-import { FaHeart } from 'react-icons/fa6';
-import { BsCart2 } from 'react-icons/bs';
-import { BsFillBarChartFill } from 'react-icons/bs';
+
 import { CiLocationOn } from 'react-icons/ci';
 import { FiPhone } from 'react-icons/fi';
 
@@ -39,7 +41,7 @@ const Header = () => {
         <div className="header__top hidden py-[5px] text-[#7A7687] md:block">
           <div className="mx-auto flex w-full max-w-[1300px] items-center justify-between px-5">
             <div className="flex items-center gap-3 text-[10px] xl:text-[12px]">
-              <p>О компании</p>
+              <Link to={'/about'}>О компании</Link>
               <p>Доставка</p>
               <p>Оплата</p>
               <p>Гарантии</p>
@@ -72,28 +74,28 @@ const Header = () => {
                 }`}
                 onClick={handleLoginModal}
               >
-                <FaRegUser size={23} />
+                <img src={Vector} size={23} className='w-[25px] h-[25px]' />
                 <span className="mt-1 hidden lg:block">Войти</span>
               </button>
               <NavLink
                 to={'wishlist'}
                 className="flex flex-col items-center text-[#7A7687] hover:text-[#07745e]"
               >
-                <FaHeart size={23} />
+                <img src={Favourites} size={23} className='w-[25px] h-[25px]' />
                 <span className="mt-1 hidden lg:block">Избранное</span>
               </NavLink>
               <NavLink
                 to={'comparison'}
                 className="flex flex-col items-center text-[#7A7687] hover:text-[#07745e]"
               >
-                <BsFillBarChartFill size={23} />
+                <img src={Comparison} className='w-[25px] h-[25px]' size={23} />
                 <span className="mt-1 hidden lg:block">Сравнить</span>
               </NavLink>
               <NavLink
                 to={'cart'}
                 className="flex flex-col items-center text-[#7A7687] hover:text-[#07745e]"
               >
-                <BsCart2 size={23} />
+                <img src={Basket} className='w-[25px] h-[25px]' size={23} />
                 <span className="mt-1 hidden lg:block">Корзина</span>
               </NavLink>
             </div>

@@ -10,6 +10,9 @@ import Compleks from '../../components/Complex/Compleks';
 import Brands from '../../components/Brands/Brands';
 import Subscribe from '../../components/Subscribe/Subscribe';
 import ProductDescription from '../../components/ProductDescriptions/ProductDescription';
+import Favourites from '../../assets/favourites.svg'
+import Comparison from '../../assets/comparison.svg'
+import BreadCrumbs from '../../components/BreadCumps/BreadCrumbs';
 
 const SinglePage = () => {
   const { id } = useParams();
@@ -42,11 +45,11 @@ const SinglePage = () => {
   const getCategoryClass = (category) => {
     switch (category) {
       case 'Акции':
-        return 'border border-red-500 rounded-full p-[3px] text-red-500 ';
+        return 'border border-[#855E00] rounded-full p-[3px] text-[#855E00] bg-orange-200';
       case 'Новинки':
-        return 'border border-green-500 rounded-full p-[3px] text-green-500 ';
+        return 'border border-[#088269] rounded-full p-[3px] text-[#088269] bg-green-50';
       case 'Хиты продаж':
-        return 'border border-blue-500 rounded-full p-[3px] text-blue-500';
+        return 'border border-[#59599A] rounded-full p-[3px] text-[#59599A] bg-indigo-100 ';
       default:
         return '';
     }
@@ -54,8 +57,10 @@ const SinglePage = () => {
 
   return (
     <div>
+      <BreadCrumbs />
       <div className="mx-auto max-w-[1300px] px-5">
-        <div className="lg:flex lg:flex-row sm:flex-col md:flex-col  gap-[15px] sm:gap-5 md:gap-[60px]    py-[50px]  ">
+     
+        <div className="lg:flex lg:flex-row sm:flex-col md:flex-col  gap-[15px] sm:gap-5 md:gap-[60px]    py-[20px]  ">
           <div className="lg:w-[750px] md:flex-col md:max-w-[800px] max-w-[700px]  lg:h-[510px] md:h-[560px] h-[380px] bg-white border border-[#E5E2EE] rounded-xl overflow-hidden sm:flex-col sm:items-center  ">
             <div className="md:max-w-[700px] lg:max-w-[700px]  max-w-[300px] mx-auto  flex  justify-between  mt-[15px] items-center">
               <p
@@ -70,13 +75,13 @@ const SinglePage = () => {
                 >
                   {' '}
                   {wishes.some((w) => w.id === product.id) ? (
-                    <IoHeart className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px] text-green-500" />
+                    <IoHeart className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px] text-[#088269]" />
                   ) : (
-                    <IoHeartOutline className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px]" />
+                    <img src={Favourites} className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px]" />
                   )}
                 </button>
                 <button className="">
-                  <IoBarChartOutline className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px]" />
+                  <img src={Comparison} className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px]" />
                 </button>
               </div>
             </div>

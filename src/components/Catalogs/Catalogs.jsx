@@ -29,14 +29,16 @@ const Catalogs = () => {
   };
 
   return (
-    <div>
-      <div className="mx-auto lg:flex lg:justify-between w-full max-w-[1300px] px-5 py-10">
+    <div >
+       
+      <div className="mx-auto lg:flex lg:justify-between w-full max-w-[1300px] px-5 py-5">
+       
         <div className="md:flex md:flex-row justify-between flex-col">
           <h1 className="lg:hidden py-[10px] text-[#202020] text-[22px] font-bold">
             Популярные категории
           </h1>
           <ul
-            className={`lg:hidden max-w-[350px] ${openDirections ? 'z-10 relative md:w-[350px] max-w-[600px]' : ' max-w-[600px] md:w-[350px]'}`}
+            className={`lg:hidden max-w-[350px] ${openDirections ? 'md:z-10 relative md:w-[350px] max-w-[600px]' : ' max-w-[600px] md:w-[350px]'}`}
           >
             <li
               className= "mf:absolute md:w-[350px] text-neutral-800 text-[18px] font-medium leading-snug border-[2px] border-[#E5E2EE] h-[48px] max-w-[760px] p-[10px] rounded-[10px] cursor-pointer"

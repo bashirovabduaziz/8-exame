@@ -5,6 +5,7 @@ import Cureer from '../../components/Cureer/Cureer';
 import Products from '../../components/Products/Products';
 import Brands from '../../components/Brands/Brands';
 import News from '../../components/News/News';
+import BreadCrumbs from '../../components/BreadCumps/BreadCrumbs';
 
 const Catalog = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const Catalog = () => {
 
   return (
     <div>
+      <BreadCrumbs />
       <Catalogs />
       <Compleks />
       <Cureer />
