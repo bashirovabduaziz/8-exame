@@ -4,6 +4,9 @@ import BreadCrumbs from '../../components/BreadCumps/BreadCrumbs';
 import WithOur from '../../components/Cureer/WithOur';
 import Subscribe from '../../components/Subscribe/Subscribe';
 import Info from '../../components/Info/Info';
+import Rules from '../../components/Cureer/Rules';
+import CureerMap from '../../components/Cureer/CureerMap';
+import CureerInfo from '../../components/Cureer/CureerInfo';
 
 const Cureer = () => {
   useEffect(() => {
@@ -14,7 +17,10 @@ const Cureer = () => {
     <BreadCrumbs />
     <CureerComp />
     <WithOur />
+    <Rules />
     <Info />
+    <CureerMap />
+    <CureerInfo />
     <Subscribe />
   </div>;
 };
