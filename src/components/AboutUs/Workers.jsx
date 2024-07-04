@@ -40,7 +40,7 @@ const Workers = () => {
           <Image
               src={images[workerIndex].main}
               fluid 
-              className='main-image lg:w-[380px] lg:h-[300px] cursor-default md:w-[600px] md:h-[300px]'
+              className='main-image lg:w-[380px] object-cover lg:h-[300px] cursor-default md:w-[600px] md:h-[300px]'
               alt=""
             />
             <p className='text-[18px] text-[#202020] ml-[20px] mt-[10px]'>Константин Константинопольский</p>
@@ -49,7 +49,7 @@ const Workers = () => {
           <Image
               src={images[workerIndex].main}
               fluid 
-              className='mt-[10px] main-image lg:w-[380px] lg:h-[300px] cursor-default md:hidden rounded-[10px]'
+              className='mt-[10px] object-cover main-image lg:w-[380px] lg:h-[300px] cursor-default md:hidden rounded-[10px]'
               alt=""
             />
             <div className='hidden md:block'>
@@ -57,7 +57,7 @@ const Workers = () => {
                 <img
                   key={thumbIndex}
                   src={thumb}
-                  className='lg:w-[250px] md:rounded-[10px] lg:h-[250px] w-[200px] h-[200px] mt-[10px] cursor-pointer'
+                  className='lg:w-[250px] object-cover md:rounded-[10px] lg:h-[250px] w-[200px] h-[200px] mt-[10px] cursor-pointer'
                   alt=""
                   onClick={() => handleThumbnailClick(workerIndex, thumbIndex)}
                 />

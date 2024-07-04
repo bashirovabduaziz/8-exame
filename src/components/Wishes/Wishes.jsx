@@ -37,7 +37,7 @@ const Wishes = () => {
     <div className="px-1 md:px-2 mt-[5px]" key={el.id}>
       <LazyLoad height={420} once>
         <div className="flex flex-col items-center rounded-[10px] border-[1px] md:h-[420px] lg:h-[440px] sm:h-[300px] gap-[20px]">
-          <div className="lg:h-[280px] md:h-[260px] sm:h-[220px] w-full items-center rounded-t-[10px] bg-white pt-[20px] flex flex-col">
+          <div className="lg:h-[280px] md:h-[260px] sm:h-[220px] w-full items-center rounded-t-[10px] overflow-hidden bg-white pt-[20px] flex flex-col">
             <div
               className={`flex items-center lg:w-[265px] md:w-[200px] justify-between w-[130px]`}
             >
@@ -65,7 +65,7 @@ const Wishes = () => {
                 <LazyLoadImage
                   src={el.img}
                   alt={el.title}
-                  className="mx-auto block md:w-[300px] lg:h-[200px] md:h-[200px] h-[80px] mt-[10px]"
+                  className="mx-auto block object-cover max-w-[220px]"
                 />
               </LazyLoad>
             </Link>
@@ -101,7 +101,7 @@ const wishline = wishes.map((wish) => (
     <LazyLoadImage
       src={wish.img}
       alt={wish.mah}
-      className="h-full w-full rounded-l-[10px] 
+      className="h-full w-full rounded-l-[10px] object-cover max-w-[150px]
       "
       height={150}
       width={150}

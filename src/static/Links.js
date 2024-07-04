@@ -11,6 +11,7 @@ export const Links = [
   {
     id: 3,
     title: 'Кабинеты под ключ',
+    to: 'office'
   },
   {
     id: 4,

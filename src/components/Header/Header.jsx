@@ -43,7 +43,7 @@ const Header = () => {
             <div className="flex items-center gap-3 text-[10px] xl:text-[12px]">
               <Link to={'/about'}>О компании</Link>
               <Link to={'/cureer'}>Доставка</Link>
-              <p>Оплата</p>
+              <Link to={'/payment'}>Оплата</Link>
               <p>Гарантии</p>
               <p>Блог</p>
             </div>

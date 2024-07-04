@@ -65,7 +65,7 @@ function NewsCarousel() {
                 <LazyLoadImage
                   src={card.src}
                   alt={card.title}
-                  className="block w-full h-full rounded-t-[10px]"
+                  className="block w-full object-cover h-full rounded-t-[10px]"
                   height={280}
                   effect="blur"
                 />

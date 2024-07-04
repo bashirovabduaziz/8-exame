@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { productData } from '../../static/data';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
@@ -10,7 +10,8 @@ import { CircularProgress } from '@mui/material';
 const Catalogs = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [openDirections, setOpenDirections] = useState(false); // State to track open/close of directions
+  const [openDirections, setOpenDirections] = useState(false);
+ 
 
   const itemsPerPage = 10;
 
@@ -217,10 +218,10 @@ const Catalogs = () => {
             currentItems.map((category, index) => (
               <div
                 key={category.id}
-                className={`flex flex-col items-center border rounded-lg overflow-hidden ${index === 2 || index === 5 ? 'md:col-span-1 md:row-span-2 md:h-[517px] h-[200px]' : 'md:h-[250px] h-[200px]'}`}
+                className={`flex flex-col items-center border rounded-lg overflow-hidden   ${index === 2 || index === 5 ? 'md:col-span-1 md:row-span-2 md:h-[517px] h-[200px]' : 'md:h-[250px] h-[200px]'}`}
               >
                 <div
-                  className={`overflow-hidden w-full object-cover bg-white border-b ${index === 2 || index === 5 ? 'md:h-[466px] h-[150px]' : 'md:h-[200px] h-[150px]'}`}
+                  className={` w-full object-cover flex items-center justify-center max-w-[300px] bg-white border-b ${index === 2 || index === 5 ? 'md:h-[466px] h-[150px]' : 'md:h-[200px] h-[150px]'}`}
                 >
                   <LazyLoadImage
                     src={category.img}
@@ -228,7 +229,7 @@ const Catalogs = () => {
                     effect="blur"
                     width={index === 2 || index === 5 ? '100%' : '150px'}
                     height={index === 2 || index === 5 ? '100%' : '150px'}
-                    className={`object-cover ml-[10px] lg:w-[200px] w-[150px] h-[150px] md:ml-[20px] md:mt-[30px] lg:ml-[40px] ${index === 5 ? 'md:h-[400px]  ' : ''} ${index === 2 ? 'md:h-[400px]' : ''}`}
+                    className={`object-cover h-full w-full max-w-[280px]  ${index === 2 || index === 5 ? ' h-full' : ' '}`}
                   />
                 </div>
                 <div className="mt-2 text-center">

@@ -45,11 +45,11 @@ const SinglePage = () => {
   const getCategoryClass = (category) => {
     switch (category) {
       case 'Акции':
-        return 'border border-[#855E00] rounded-full p-[3px] text-[#855E00] bg-orange-200';
+        return 'border border-[#855E00] rounded-full p-[7px] text-[#855E00] bg-orange-200';
       case 'Новинки':
-        return 'border border-[#088269] rounded-full p-[3px] text-[#088269] bg-green-50';
+        return 'border border-[#088269] rounded-full p-[7px] text-[#088269] bg-green-50';
       case 'Хиты продаж':
-        return 'border border-[#59599A] rounded-full p-[3px] text-[#59599A] bg-indigo-100 ';
+        return 'border border-[#59599A] rounded-full p-[7px] text-[#59599A] bg-indigo-100 ';
       default:
         return '';
     }
@@ -61,10 +61,10 @@ const SinglePage = () => {
       <div className="mx-auto max-w-[1300px] px-5">
      
         <div className="lg:flex lg:flex-row sm:flex-col md:flex-col  gap-[15px] sm:gap-5 md:gap-[60px]    py-[20px]  ">
-          <div className="lg:w-[750px] md:flex-col md:max-w-[800px] max-w-[700px]  lg:h-[510px] md:h-[560px] h-[380px] bg-white border border-[#E5E2EE] rounded-xl overflow-hidden sm:flex-col sm:items-center  ">
-            <div className="md:max-w-[700px] lg:max-w-[700px]  max-w-[300px] mx-auto  flex  justify-between  mt-[15px] items-center">
+          <div className="lg:w-[750px] md:flex-col md:max-w-[800px] max-w-[700px]  p-[20px] max-h-[600px]   bg-white border border-[#E5E2EE] rounded-xl sm:flex-col sm:items-center  ">
+            <div className="md:max-w-[700px] sm:max-w-[650px] lg:max-w-[700px]  max-w-[300px] mx-auto  flex  justify-between items-center">
               <p
-                className={` ${getCategoryClass(product.category)}  text-[12px] lg:text-[20px] md:text-[18px]`}
+                className={` ${getCategoryClass(product.category)}  text-[12px]  lg:text-[20px] md:text-[18px]`}
               >
                 {product.category}
               </p>
@@ -88,9 +88,10 @@ const SinglePage = () => {
             <img
               src={mainImg}
               alt={product.title}
-              className="lg:w-[600px] w-[300px] md:w-[600px] md:h-[400px] mt-[30px] h-[250px] lg:h-[350px]  lg:mt-[30px] mx-auto block"
+              className="lg:max-w-[700px] object-cover max-h-[400px] 
+               mx-auto block"
             />
-            <div className="max-w-[200px]  mx-auto  flex  justify-between lg:mt-[10px] lg:ml-[50px]   ">
+            <div className="max-w-[200px]  mx-auto  flex  justify-between lg:mt-[70px]  lg:mx-0  ">
               {thumbnails.map((thumb, index) => (
                 <img
                   key={index}

@@ -28,7 +28,7 @@ const SearchComp = () => {
 
   return (
     <div>
-      <div className="flex items-center rounded-[50px] bg-[#D5D1E1] pr-[20px] text-[12px] xl:text-[14px] relative">
+      <div className="flex items-center rounded-[50px] bg-[#D5D1E1] pr-[20px] text-[12px] xl:text-[14px] relative border-[3px]">
         <div className="mr-2 flex items-center rounded-l-[50px] rounded-r-[50px] bg-white">
           <select className="w-[40%] rounded-[50px] bg-[#EFEFEF] px-[15px] py-[10px] text-[#7A7687] outline-none sm:w-[30%]">
             {selectOptions.map((option) => (

@@ -101,7 +101,7 @@ const ProductsData = ({ category }) => {
             <div className="px-1 md:px-2 mt-[5px]" key={product.id}>
               <LazyLoad height={420} once>
                 <div className="flex flex-col items-center rounded-[10px] border-[1px] md:h-[420px] lg:h-[440px] sm:h-[300px] gap-[20px]">
-                  <div className="lg:h-[280px] md:h-[260px] sm:h-[220px] w-full items-center rounded-t-[10px] bg-white pt-[20px] flex flex-col">
+                  <div className="lg:h-[280px] md:h-[260px] sm:h-[220px] w-full items-center rounded-t-[10px] overflow-hidden bg-white pt-[20px] flex flex-col">
                     <div
                       className={`flex items-center lg:w-[250px] md:w-[200px] justify-between w-[130px]`}
                     >
@@ -131,7 +131,7 @@ const ProductsData = ({ category }) => {
                         <img
                           src={product.img}
                           alt={product.title}
-                          className="mx-auto block md:w-[300px] lg:h-[220px] md:h-[200px] h-[80px] mt-[10px]"
+                          className="mx-auto block object-cover max-w-[220px]  lg:h-[220px] md:h-[200px] h-[80px] mt-[10px]"
                         />
                       </LazyLoad>
                     </Link>
