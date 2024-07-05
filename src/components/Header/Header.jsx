@@ -44,8 +44,8 @@ const Header = () => {
               <Link to={'/about'}>О компании</Link>
               <Link to={'/cureer'}>Доставка</Link>
               <Link to={'/payment'}>Оплата</Link>
-              <p>Гарантии</p>
-              <p>Блог</p>
+              <Link to={'/guarantees'}>Гарантии</Link>
+              <Link to={'/blog'}>Блог</Link>
             </div>
             <div className="flex items-center gap-6 text-[10px] xl:text-[12px]">
               <Link to="mailto : info@mail.ru">info@mail.ru</Link>

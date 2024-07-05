@@ -29,5 +29,6 @@ export const Links = [
   {
     id: 7,
     title: 'Контакты',
+    to: 'contact'
   },
 ];

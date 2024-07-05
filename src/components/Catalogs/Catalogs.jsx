@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { productData } from '../../static/data';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
@@ -255,7 +255,7 @@ const Catalogs = () => {
             nextLinkClassName={'p-[14px] border rounded-lg hover:bg-gray-200'}
             disabledClassName={'pagination__link--disabled'}
             activeClassName={
-              'bg-green-500 text-white px-3 py-1 border rounded-lg'
+              'bg-[#088269] text-white px-3 py-1 border rounded-lg'
             }
           />
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import BreadCrumbs from '../../components/BreadCumps/BreadCrumbs';
 import AboutUs from '../../components/AboutUs/AboutUs';
 import Numbers from '../../components/AboutUs/Numbers';

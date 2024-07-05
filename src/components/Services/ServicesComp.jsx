@@ -1,4 +1,3 @@
-import React from 'react'
 import { Services } from '../../static/Services'
 
 const ServicesComp = () => {
@@ -14,7 +13,7 @@ const ServicesComp = () => {
                     <p className=" mt-[10px] text-zinc-500 text-xs font-normal ">Описание услуги</p>
                     <p className="mt-[10px] max-w-[705px] text-zinc-500 text-base font-medium leading-snug">Также как постоянное информационно-пропагандистское обеспечение нашей деятельности требует определения и уточнения распределения внутренних резервов и ресурсов. </p>
                 </div>
-                <img src={el.img} className='lg:max-w-[280px] lg:h-[290px] hidden lg:block' alt="" />
+                <img src={el.img} className=' object-cover lg:max-w-[280px] lg:h-[290px] hidden lg:block' alt="" />
             </div>)}
         </div>
     </div>
