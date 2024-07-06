@@ -1,11 +1,152 @@
 import React, { useEffect } from 'react';
+import BreadCrumbs from '../../components/BreadCumps/BreadCrumbs';
+import { useDispatch, useSelector } from 'react-redux';
+import { decCart, incCart, removeFromCart, clearCart } from '../../context/cartSlice';
+import Favourites from '../../assets/favourites.svg'
+import Comparison from '../../assets/comparison.svg'
+import { IoHeart } from 'react-icons/io5';
+import { toggleToWishes } from '../../context/wishlistSlice';
+import Cross from '../../assets/cross.svg'
 
 const Cart = () => {
+  const cartItems = useSelector(state => state.cart.value);
+  const wishes = useSelector((state) => state.wishlist.value);
+  const dispatch = useDispatch();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  return <div>Cart</div>;
+  const calculateTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+};
+
+const totalPrice = calculateTotalPrice();
+ 
+  const getCategoryClass = (category) => {
+    switch (category) {
+      case 'Акции':
+        return 'border border-[#855E00] rounded-full p-[3px] text-[#855E00] bg-orange-200';
+      case 'Новинки':
+        return 'border border-[#088269] rounded-full p-[3px] text-[#088269] bg-green-50';
+      case 'Хиты продаж':
+        return 'border border-[#59599A] rounded-full p-[3px] text-[#59599A] bg-indigo-100 ';
+      default:
+        return '';
+    }
+  };
+
+  let cart = cartItems?.map((cart) => (
+    <div key={cart.id} className='relative border md:w-[500px] md:gap-[40px] lg:w-[800px] xl:w-[800px] max-w-[1000px] flex lg:justify-between lg:gap-[10px] rounded-[10px] overflow-hidden mt-[15px]'>
+
+      <div className='bg-white lg:w-[260px] md:h-[260px] md:w-[250px] lg:h-[260px]'>
+        <div
+          className={`mt-[10px] flex items-center lg:w-[250px] lg:mt-[10px] ml-[10px] md:mt-[10px] md:w-[230px] justify-between w-[130px] mx-auto`}
+        >
+          <p
+            className={` ${getCategoryClass(cart.category)} text-[8px] md:text-[17px]`}
+          >
+            {cart.category}
+          </p>
+          <div className="gap-[6px] flex items-center lg:hidden">
+            <button className="">
+              <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+            </button>
+            <button
+              onClick={() => dispatch(toggleToWishes(cart))}
+            >
+              {' '}
+              {wishes.some((w) => w.id === cart.id) ? (
+                <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-[#088269]" />
+              ) : (
+                <img src={Favourites} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+              )}
+            </button>
+          </div>
+        </div>
+        <img src={cart.img} alt="" className='mx-auto lg:max-w-[250px] md:max-w-[200px] max-w-[150px] object-cover lg:h-[200px]' />
+      </div>
+      <div className='px-[10px]'>
+        <p className=' lg:w-[250px] text-[#202020] md:font-medium w-[110px] md:text-[16px] lg:text-[18px] text-[12px] mt-[15px]'>{cart.title}</p>
+        <p className='md:text-[15px] text-[10px] font-thin lg:mt-[10px] text-[#7A7687]'>Артикул: 213134</p>
+        <p className='md:text-[15px] text-[10px] font-thin lg:mt-[10px] text-[#7A7687]'>В наличии</p>
+        <div className='lg:hidden lg:py-[10px]'>
+          <p className='font-medium text-[13px] text-[#202020] md:text-[16px]'>{cart.price} руб.</p>
+          <div className='flex max-w-[85px] lg:max-w-[90px] items-center gap-[13px] border-[2px] lg:py-[5px] my-[5px] mt-[5px] px-[14px] rounded-full'>
+            <button disabled={cart.quantity <= 1} onClick={() => dispatch(decCart(cart))} className='text-[23px] flex items-center justify-center transition text-[#7A7687]'>-</button>
+            <span className=''>{cart.quantity}</span>
+            <button onClick={() => dispatch(incCart(cart))} className='text-[23px] flex items-center justify-center transition text-[#07745E]'>+</button>
+          </div>
+        </div>
+      </div>
+      <div className='hidden lg:block mt-[15px]'>
+        <p className='font-medium text-[#202020] lg:text-[18px]'>{cart.price} руб.</p>
+        <div className='flex max-w-[90px] items-center gap-[13px] border-[2px] py-[5px] mt-[10px] px-[14px] rounded-full'>
+          <button disabled={cart.quantity <= 1} onClick={() => dispatch(decCart(cart))} className='text-[23px] flex items-center justify-center transition text-[#7A7687]'>-</button>
+          <span className=''>{cart.quantity}</span>
+          <button onClick={() => dispatch(incCart(cart))} className='text-[23px] flex items-center justify-center transition text-[#07745E]'>+</button>
+        </div>
+      </div>
+      <div className="gap-[10px] px-[15px] mt-[15px] lg:block hidden items-center">
+        <button className="">
+          <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+        </button>
+        <button
+          className=""
+          onClick={() => dispatch(toggleToWishes(cart))}
+        >
+          {' '}
+          {wishes.some((w) => w.id === cart.id) ? (
+            <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-[#088269]" />
+          ) : (
+            <img src={Favourites} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+          )}
+        </button>
+
+        <button onClick={() => dispatch(removeFromCart(cart))} className=''>
+          <img src={Cross} alt="" className='lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]' />
+        </button>
+      </div>
+      <div className='absolute top-2 right-2 lg:hidden'>
+        <button onClick={() => dispatch(removeFromCart(cart))} className=''>
+          <img src={Cross} alt="" className='w-[20px] h-[20px]' />
+        </button>
+      </div>
+    </div>
+  ));
+
+  return (
+    <div>
+      <BreadCrumbs />
+      <div className='max-w-[1300px] mx-auto px-5 py-10 md:flex justify-between'>
+        <div>
+          {cart}
+        </div>
+        <div className="sm:w-[30%] bg-[#fff] mt-[15px] h-full border p-5 rounded-lg">
+          <span className="flex justify-between items-center pb-3 border-b">
+            <h2 className="text-[16px] font-semibold">Итого</h2>
+            <p className="text-[14px] font-semibold"> ${totalPrice.toFixed(2)} руб.</p>
+          </span>
+          <span className="flex pt-2 justify-between">
+            <h2 className="text-[12px]">
+              Товары ({cartItems.length})
+            </h2>
+          </span>
+          <span className="flex py-1 justify-between">
+            <h2 className="text-[12px]">Скидка</h2>
+            <p className="text-[12px]">0 руб.</p>
+          </span>
+          <span className="flex flex-col pt-[10px] gap-2">
+            <button className="py-2 w-full text-[12px] bg-[#088269] text-[#fff] border rounded-full">
+              Оформить заказ
+            </button>
+            <button className="py-2 w-full text-[12px] rounded-full border">
+              Задать вопрос
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Cart;

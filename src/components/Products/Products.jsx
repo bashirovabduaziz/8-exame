@@ -2,28 +2,29 @@ import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import LazyLoad from 'react-lazyload'; // react-lazyload kutubxonasini import qiling
+import LazyLoad from 'react-lazyload'; 
 import { productData } from '../../static/data';
 import {
-  FaHeart,
+ 
   FaLongArrowAltLeft,
   FaLongArrowAltRight,
-  FaRegHeart,
+ 
 } from 'react-icons/fa';
 import {
-  IoBarChartOutline,
-  IoHeartOutline,
+  
   IoHeart,
  
 } from 'react-icons/io5';
 import Favourites from '../../assets/favourites.svg'
 import Comparison from '../../assets/comparison.svg'
+import {addToCart} from '../../context/cartSlice'
 import { toggleToWishes } from '../../context/wishlistSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const ProductsData = ({ category }) => {
   const wishes = useSelector((state) => state.wishlist.value);
+  const cartsInStore = useSelector(state => state.cart.value);
   let sliderRef = useRef(null);
   const dispatch = useDispatch();
 
@@ -150,12 +151,27 @@ const ProductsData = ({ category }) => {
                         {product.oldprice}
                       </del>
                     </div>
-                    <button
-                      className="rounded-[50px] border-[2px] md:text-[14px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] py-[5px] text-[#202020] 
-                    hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
-                    >
-                      Добавить в корзину
-                    </button>
+                    {
+                        cartsInStore.some(w => w.id === product.id) ?
+                        <button
+                        className="rounded-[50px] border-[2px] md:text-[14px]  md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] 
+                          hover:border-[#07745E] duration-150   bg-[#088269] py-[5px] text-[#F8F7F3] lg:rounded-[50px] lg:px-5  hover:bg-[#066753] "
+                      onClick={() => dispatch(addToCart(product))}
+                      >
+                         
+                          Добавлено в корзину
+                      </button> :
+                            <button
+                            className="rounded-[50px] border-[2px] md:text-[14px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] py-[5px] text-[#202020] 
+                          hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
+                          onClick={() => dispatch(addToCart(product))}
+                          >
+                            Добавить в корзину
+                          
+                            
+                          </button>
+                    }
+                    
                   </div>
                 </div>
               </LazyLoad>
