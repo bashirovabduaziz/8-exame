@@ -5,9 +5,9 @@ function LoginModal({ isOpen, setIsOpen, onRegister }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const UserInformation = {
-      username: e.target[0].value,
-      email: e.target[1].value,
-      password: e.target[2].value,
+      username: e.target.username.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
     };
     localStorage.setItem('UserInformation', JSON.stringify(UserInformation));
     setIsOpen(false);
@@ -24,7 +24,7 @@ function LoginModal({ isOpen, setIsOpen, onRegister }) {
       <div className="flex min-h-screen items-center justify-center bg-black/50">
         <Dialog.Panel className="mx-3 w-full max-w-[550px] rounded-lg bg-white p-6 shadow-md sm:mx-0 ">
           <div className="mb-10 flex items-center justify-between">
-            <h2 className="text-[18px] font-semibold  text-[#202020]">
+            <h2 className="text-[18px] font-semibold text-[#202020]">
               Регистрация
             </h2>
             <button
@@ -51,6 +51,7 @@ function LoginModal({ isOpen, setIsOpen, onRegister }) {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
+              name="username"
               placeholder="Ваше имя"
               className="mb-1 block w-full bg-transparent text-[14px] text-[#7A7687] outline-none md:mb-2"
               required
@@ -59,6 +60,7 @@ function LoginModal({ isOpen, setIsOpen, onRegister }) {
             <hr className="mb-6 md:mb-10" />
             <input
               type="email"
+              name="email"
               placeholder="Ваш email*"
               className="mb-1 block w-full bg-transparent text-[14px] text-[#7A7687] outline-none md:mb-2"
               required
@@ -67,6 +69,7 @@ function LoginModal({ isOpen, setIsOpen, onRegister }) {
             <hr className="mb-6 md:mb-10" />
             <input
               type="password"
+              name="password"
               placeholder="Пароль*"
               className="mb-1 block w-full bg-transparent text-[14px] text-[#7A7687] outline-none md:mb-2"
               required
