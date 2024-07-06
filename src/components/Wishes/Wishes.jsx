@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleToWishes } from '../../context/wishlistSlice';
-import {
-  
-  IoHeart
-} from 'react-icons/io5';
+import {addToCart} from '../../context/cartSlice';
+import {  IoHeart} from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -15,6 +13,7 @@ import Comparison from '../../assets/comparison.svg'
 
 const Wishes = () => {
   const wishes = useSelector((state) => state.wishlist.value);
+  const cartsInStore = useSelector(state => state.cart.value);
   const dispatch = useDispatch();
   console.log(wishes);
  
@@ -33,67 +32,84 @@ const Wishes = () => {
         return '';
     }
   };
-  const wishs = wishes.map((el) => (
-    <div className="px-1 md:px-2 mt-[5px]" key={el.id}>
-      <LazyLoad height={420} once>
-        <div className="flex flex-col items-center rounded-[10px] border-[1px] md:h-[420px] lg:h-[440px] sm:h-[300px] gap-[20px]">
-          <div className="lg:h-[280px] md:h-[260px] sm:h-[220px] w-full items-center rounded-t-[10px] overflow-hidden bg-white pt-[20px] flex flex-col">
-            <div
-              className={`flex items-center lg:w-[265px] md:w-[200px] justify-between w-[130px]`}
+  const wishs = wishes.map((product) => (
+    <div className="px-1 md:px-2 mt-[5px]" key={product.id}>
+    <LazyLoad height={420} once>
+      <div className="flex flex-col items-center rounded-[10px] border-[1px]  md:h-[420px] lg:h-[440px] sm:h-[300px] gap-[20px]">
+        <div className="lg:h-[280px] md:h-[260px] sm:h-[220px] w-full items-center rounded-t-[10px] overflow-hidden bg-white pt-[20px] flex flex-col">
+          <div
+            className={`flex items-center lg:w-[250px] md:w-[200px] justify-between w-[130px]`}
+          >
+            <p
+              className={` ${getCategoryClass(product.category)} text-[8px] md:text-[17px]`}
             >
-              <p
-                className={` ${getCategoryClass(el.category)} text-[8px] md:text-[17px]`}
+              {product.category}
+            </p>
+            <div className="gap-[6px] flex items-center">
+              <button className="">
+                <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+              </button>
+              <button
+                onClick={() => dispatch(toggleToWishes(product))}
               >
-                {el.category}
-              </p>
-              <div className="gap-[6px] flex items-center">
-                <button className="">
-                  <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
-                </button>
-                <button onClick={() => dispatch(toggleToWishes(el))}>
-                  {' '}
-                  {wishes.some((w) => w.id === el.id) ? (
-                    <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-[#07745E]" />
-                  ) : (
-                    <img src={Favourites} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
-                  )}
-                </button>
-              </div>
+                {' '}
+                {wishes.some((w) => w.id === product.id) ? (
+                  <IoHeart className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px] text-[#088269]" />
+                ) : (
+                  <img src={Favourites} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                )}
+              </button>
             </div>
-            <Link to={`/single-product/${el.id}`}>
-              <LazyLoad height={200}>
-                <LazyLoadImage
-                  src={el.img}
-                  alt={el.title}
-                  className="mx-auto block object-cover max-w-[220px]"
-                />
-              </LazyLoad>
-            </Link>
           </div>
-          <div className="rounded-b-[10px] bg-[#F8F7F3] px-[15px] py-[14px] sm:py-[15px] md:px-[20px] md:py-[20px]">
-            <Link to={`/single-product/${el.id}`}>
-              <p className="text-[12px] font-medium text-[#202020] mt-[-30px] md:w-[170px] md:text-[16px] lg:w-[200px] lg:h-[30px] md:h-[20px] w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">
-                {el.title}
-              </p>
-            </Link>
-            <div className="flex items-end py-[10px]">
-              <p className="text-[12px] md:text-[16px] lg:text-[18px]">
-                {el.price}руб.
-              </p>
-              <del className="text-red-500 md:text-[14px] text-[8px] ml-[5px]">
-                {el.oldprice}
-              </del>
-            </div>
-            <button
-              className="rounded-[50px] border-[2px] md:text-[13px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] py-[5px] text-[#202020] 
-            hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
-            >
-              Добавить в корзину
-            </button>
-          </div>
+          <Link to={`/single-product/${product.id}`}>
+            <LazyLoad height={200}>
+              <img
+                src={product.img}
+                alt={product.title}
+                className="mx-auto block object-cover max-w-[220px]  lg:h-[220px] md:h-[200px] h-[80px] mt-[10px]"
+              />
+            </LazyLoad>
+          </Link>
         </div>
-      </LazyLoad>
-    </div>
+        <div className="rounded-b-[10px] bg-[#F8F7F3] px-[15px] py-[14px] sm:py-[15px] md:px-[20px] md:py-[20px]">
+          <Link to={`/single-product/${product.id}`}>
+            <p className="text-[12px] font-medium text-[#202020] mt-[-30px] md:w-[170px] md:text-[16px] lg:w-[200px] lg:h-[30px] md:h-[20px] w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">
+              {product.title}
+            </p>
+          </Link>
+          <div className="flex items-end py-[10px]">
+            <p className="text-[12px] md:text-[16px] lg:text-[18px]">
+              {product.price}руб.
+            </p>
+            <del className="text-red-500 md:text-[14px] text-[8px] ml-[5px]">
+              {product.oldprice}
+            </del>
+          </div>
+          {
+              cartsInStore.some(w => w.id === product.id) ?
+              <button
+              className="rounded-[50px] border-[2px] md:text-[14px]  md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] 
+                hover:border-[#07745E] duration-150   bg-[#088269] py-[5px] text-[#F8F7F3] lg:rounded-[50px] lg:px-5  hover:bg-[#066753] "
+            onClick={() => dispatch(addToCart(product))}
+            >
+               
+                Добавлено в корзину
+            </button> :
+                  <button
+                  className="rounded-[50px] border-[2px] md:text-[14px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] py-[5px] text-[#202020] 
+                hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
+                onClick={() => dispatch(addToCart(product))}
+                >
+                  Добавить в корзину
+                
+                  
+                </button>
+          }
+          
+        </div>
+      </div>
+    </LazyLoad>
+  </div>
   ));
  
 const wishline = wishes.map((wish) => (
@@ -128,19 +144,47 @@ const wishline = wishes.map((wish) => (
                     <img src={Favourites} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
                   )}
                 </button>
-                <button
-              className="hidden md:block rounded-[50px] border-[2px] md:text-[13px] border-[#D5D1E1] md:px-5 px-2 text-[8px] lg:text-[18px] py-[5px] text-[#202020] 
-            hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
-            >
-              Добавить в корзину
-            </button>
-              </div>
+                {
+              cartsInStore.some(w => w.id === wish.id) ?
               <button
-              className=" md:hidden mt-[10px] rounded-[50px] border-[2px] md:text-[13px] border-[#D5D1E1] md:px-5 px-2 text-[8px] lg:text-[18px] py-[5px] text-[#202020] 
-            hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
+              className="hidden lg:block rounded-[50px] border-[2px] md:text-[14px]  md:px-5  px-2 text-[8px] lg:text-[16px] 
+                hover:border-[#07745E] duration-150   bg-[#088269] py-[5px] text-[#F8F7F3] lg:rounded-[50px] lg:px-5  hover:bg-[#066753] "
+            onClick={() => dispatch(addToCart(wish))}
             >
-              Добавить в корзину
-            </button>
+               
+                Добавлено в корзину
+            </button> :
+                  <button
+                  className="hidden lg:block rounded-[50px] border-[2px] md:text-[14px] border-[#D5D1E1] md:px-5  px-2 text-[8px] lg:text-[16px] py-[5px] text-[#202020] 
+                hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
+                onClick={() => dispatch(addToCart(wish))}
+                >
+                  Добавить в корзину
+                
+                  
+                </button>
+          }
+              </div>
+              {
+              cartsInStore.some(w => w.id === wish.id) ?
+              <button
+              className="lg:hidden  rounded-[50px] border-[2px] md:text-[14px]  md:px-5  px-2 text-[8px] lg:text-[16px] 
+                hover:border-[#07745E] duration-150   bg-[#088269] py-[5px] text-[#F8F7F3] lg:rounded-[50px] lg:px-5  hover:bg-[#066753] "
+            onClick={() => dispatch(addToCart(wish))}
+            >
+               
+                Добавлено в корзину
+            </button> :
+                  <button
+                  className="lg:hidden rounded-[50px] border-[2px] md:text-[14px] border-[#D5D1E1] md:px-5  px-2 text-[8px] lg:text-[16px] py-[5px] text-[#202020] 
+                hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
+                onClick={() => dispatch(addToCart(wish))}
+                >
+                  Добавить в корзину
+                
+                  
+                </button>
+          }
    </div>
   </div>
 ));
@@ -186,7 +230,7 @@ const wishline = wishes.map((wish) => (
           </div>
           <div className='lg:w-[950px]'>
           {activeTab === 'table' && (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3  gap-5 max-w-[1150px] mt-[20px] ">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3  lg:gap-5 max-w-[1200px] mt-[20px] ">
             {wishs}
           </div>
           )}

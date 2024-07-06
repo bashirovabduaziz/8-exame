@@ -45,11 +45,11 @@ const AccordionComp = ({ title }) => {
                 <Link to={'/about'}>О компании</Link>
                 <li>Сертификаты</li>
                 <li>Вакансии</li>
-                <li>Гарантии</li>
-                <li>Услуги</li>
+                <Link to={'guarantees'}>Гарантии</Link>
+                <Link to={'/services'}>Услуги</Link>
                 <li>Акции</li>
                 <Link to={'/cureer'}>Доставка</Link>
-                <li>Оплата</li>
+                <Link to={'/payment'}>Оплата</Link>
                 <li>Возврат</li>
               </ul>
             </div>

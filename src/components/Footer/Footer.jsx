@@ -29,18 +29,18 @@ const Footer = () => {
                 <Link to={'/about'} className="cursor-pointer">О компании</Link>
                 <li className="cursor-pointer">Сертификаты</li>
                 <li className="cursor-pointer">Вакансии</li>
-                <li className="cursor-pointer">Гарантии</li>
-                <li className="cursor-pointer">Услуги</li>
+                <Link to={'guarantees'} className="cursor-pointer">Гарантии</Link>
+                <Link to={'/services'} className="cursor-pointer">Услуги</Link>
                 <li className="cursor-pointer">Акции</li>
-                <Link to={'cureer'} className="cursor-pointer">Доставка</Link>
+                <Link to={'/cureer'} className="cursor-pointer">Доставка</Link>
               </ul>
               <ul className="flex flex-col gap-1 text-[#F8F7F3]">
-                <li className="cursor-pointer">Оплата</li>
+                <Link to={'/payment'}  className="cursor-pointer">Оплата</Link>
                 <li className="cursor-pointer">Возврат</li>
                 <li className="cursor-pointer">FAQ</li>
                 <li className="cursor-pointer">Лизинг</li>
                 <li className="cursor-pointer">Отзывы</li>
-                <li className="cursor-pointer">Блог</li>
+                <Link to={'/blog'} className="cursor-pointer">Блог</Link>
               </ul>
             </div>
           </div>
