@@ -136,10 +136,10 @@ const totalPrice = calculateTotalPrice();
             <p className="text-[12px]">0 руб.</p>
           </span>
           <span className="flex flex-col pt-[10px] gap-2">
-            <button className="py-2 w-full text-[12px] bg-[#088269] text-[#fff] border rounded-full">
+            <button className="py-2 w-full  lg:text-[16px] text-[12px] bg-[#088269] text-[#fff] border rounded-full">
               Оформить заказ
             </button>
-            <button className="py-2 w-full text-[12px] rounded-full border">
+            <button className="py-2 w-full lg:text-[16px] text-[12px] rounded-full border">
               Задать вопрос
             </button>
           </span>

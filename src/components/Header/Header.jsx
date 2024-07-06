@@ -1,21 +1,14 @@
-import { Link, NavLink } from 'react-router-dom';
-
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg';
 import Vector from '../../assets/Vector.svg'
 import Favourites from '../../assets/favourites.svg'
 import Comparison from '../../assets/comparison.svg'
 import Basket from '../../assets/basket.svg'
-
-
 import { Links } from '../../static/Links';
-
-
 import { CiLocationOn } from 'react-icons/ci';
 import { FiPhone } from 'react-icons/fi';
-
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import SearchComp from './SearchComp';
-
 import HeaderForPhone from './HeaderForPhone';
 import NavbarForPhone from './NavbarForPhone';
 import { useEffect, useState } from 'react';
@@ -23,16 +16,24 @@ import LoginModal from './LoginModal';
 
 const Header = () => {
   const [userData, setUserData] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const data = localStorage.getItem('UserInformation');
-    setUserData(data);
-  }, [localStorage.getItem('UserInformation')]);
-
-  const [isOpen, setIsOpen] = useState(false);
+    setUserData(data ? JSON.parse(data) : null);
+  }, []);
 
   const handleLoginModal = () => {
-    setIsOpen((prev) => !prev);
+    if (userData) {
+      navigate('/personal');
+    } else {
+      setIsOpen((prev) => !prev);
+    }
+  };
+
+  const handleRegister = (data) => {
+    setUserData(data);
   };
 
   return (
@@ -69,13 +70,13 @@ const Header = () => {
             </div>
             <div className="flex gap-4">
               <button
-                className={`flex-col items-center text-[#7A7687] hover:text-[#07745e] ${
-                  userData ? 'hidden' : 'flex'
-                }`}
+                className={`flex-col items-center text-[#7A7687] hover:text-[#07745e] ${userData ? 'flex' : 'flex'}`}
                 onClick={handleLoginModal}
               >
                 <img src={Vector} size={23} className='w-[25px] h-[25px]' />
-                <span className="mt-1 hidden lg:block">Войти</span>
+                <span className="mt-1 hidden lg:block">
+                  {userData ? userData.username : 'Войти'}
+                </span>
               </button>
               <NavLink
                 to={'wishlist'}
@@ -144,7 +145,7 @@ const Header = () => {
         <div className="h-[1px] w-full bg-[#E5E2EE]"></div>
         <NavbarForPhone />
       </header>
-      <LoginModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <LoginModal isOpen={isOpen} setIsOpen={setIsOpen} onRegister={handleRegister} />
     </>
   );
 };
