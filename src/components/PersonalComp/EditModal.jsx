@@ -35,7 +35,7 @@ function EditModal({ isOpen, setIsOpen, onEdit }) {
       <div className="flex min-h-screen items-center justify-center bg-black/50">
         <Dialog.Panel className="mx-3 w-full max-w-[550px] rounded-lg bg-white p-6 shadow-md sm:mx-0 ">
           <div className="mb-10 flex items-center justify-between">
-            <h2 className="text-[18px] font-semibold text-[#202020]">Edit Information</h2>
+            <h2 className="text-[18px] font-semibold text-[#202020]">Редактировать информацию?</h2>
             <button onClick={() => setIsOpen(false)} className="text-gray-500 hover:text-gray-800">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />

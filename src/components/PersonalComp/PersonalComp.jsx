@@ -11,32 +11,48 @@ import { MdKeyboardArrowUp } from "react-icons/md";
 import { decCart, incCart, removeFromCart, clearCart } from '../../context/cartSlice';
 import { useSelector } from "react-redux";
 import EditModal from './EditModal';
+import DeleteModal from "./DeleteModal";
 
 const PersonalComp = () => {
   const cartItems = useSelector(state => state.cart.value);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   useEffect(() => {
     const userInformation = JSON.parse(localStorage.getItem('UserInformation'));
     if (userInformation && userInformation.username) {
       setUsername(userInformation.username);
-      setEmail(userInformation.email); // Email manzilini o'qiymiz
+      setEmail(userInformation.email); 
     }
   }, []);
   const calculateTotalPrice = () => {
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
 };
 
+
+const handleDeleteModalOpen = () => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleDeleteModalClose = () => {
+    setIsDeleteModalOpen(false);
+  };
+  
 const totalPrice = calculateTotalPrice();
  
 
   const handleEdit = (updatedUserInfo) => {
     setUsername(updatedUserInfo.username);
-    setEmail(updatedUserInfo.email); // Email manzilini yangilaymiz
+    setEmail(updatedUserInfo.email); 
   };
 
+  const handleDelete = () => {
+    localStorage.removeItem('UserInformation');
+    setIsDeleteModalOpen(false);
+    window.location.href = '/'; 
+  };
   return (
     <div className="max-w-[1300px] py-[60px] mx-auto px-5">
       <div className="flex flex-col gap-[40px] pb-[100px]">
@@ -302,7 +318,7 @@ const totalPrice = calculateTotalPrice();
               </label>
             </div>
             <span>
-              <button className="bg-[#088269] w-[180px] hover:bg-[#07745e] mt-[20px] sm:mt-[50px] text-[#fff]  py-2 rounded-full border text-[14px]">
+              <button onClick={handleDeleteModalOpen} className="bg-[#088269] w-[180px] hover:bg-[#07745e] mt-[20px] sm:mt-[50px] text-[#fff]  py-2 rounded-full border text-[14px]">
                 Выйти
               </button>
             </span>
@@ -335,6 +351,7 @@ const totalPrice = calculateTotalPrice();
         </div>
       </div>
       <EditModal isOpen={isEditModalOpen} setIsOpen={setIsEditModalOpen} onEdit={handleEdit} />
+      <DeleteModal isOpen={isDeleteModalOpen} setIsOpen={setIsDeleteModalOpen} handleDelete={handleDelete} />
     </div>
   );
 };
