@@ -124,7 +124,7 @@ const totalPrice = calculateTotalPrice();
         <div className="sm:w-[30%] bg-[#fff] mt-[15px] h-full border p-5 rounded-lg">
           <span className="flex justify-between items-center pb-3 border-b">
             <h2 className="text-[16px] font-semibold">Итого</h2>
-            <p className="text-[14px] font-semibold"> ${totalPrice.toFixed(2)} руб.</p>
+            <p className="text-[14px] font-semibold"> {totalPrice.toFixed(2)} руб.</p>
           </span>
           <span className="flex pt-2 justify-between">
             <h2 className="text-[12px]">
