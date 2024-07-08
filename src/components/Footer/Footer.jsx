@@ -31,7 +31,7 @@ const Footer = () => {
                 <li className="cursor-pointer">Вакансии</li>
                 <Link to={'guarantees'} className="cursor-pointer">Гарантии</Link>
                 <Link to={'/services'} className="cursor-pointer">Услуги</Link>
-                <li className="cursor-pointer">Акции</li>
+                <Link to={'/stock'} className="cursor-pointer">Акции</Link>
                 <Link to={'/cureer'} className="cursor-pointer">Доставка</Link>
               </ul>
               <ul className="flex flex-col gap-1 text-[#F8F7F3]">

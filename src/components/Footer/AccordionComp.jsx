@@ -47,7 +47,7 @@ const AccordionComp = ({ title }) => {
                 <li>Вакансии</li>
                 <Link to={'guarantees'}>Гарантии</Link>
                 <Link to={'/services'}>Услуги</Link>
-                <li>Акции</li>
+                <Link to={'/stock'}>Акции</Link>
                 <Link to={'/cureer'}>Доставка</Link>
                 <Link to={'/payment'}>Оплата</Link>
                 <li>Возврат</li>
