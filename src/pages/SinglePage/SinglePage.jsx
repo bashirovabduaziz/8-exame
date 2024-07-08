@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { productData } from '../../static/data';
 import { useParams } from 'react-router-dom';
-import { IoBarChartOutline, IoHeart, IoHeartOutline } from 'react-icons/io5';
+import {  IoHeart } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleToWishes } from '../../context/wishlistSlice';
 import { Rating } from '@mui/material';
@@ -13,6 +13,7 @@ import ProductDescription from '../../components/ProductDescriptions/ProductDesc
 import Favourites from '../../assets/favourites.svg'
 import Comparison from '../../assets/comparison.svg'
 import BreadCrumbs from '../../components/BreadCumps/BreadCrumbs';
+import { addToCart } from '../../context/cartSlice';
 
 const SinglePage = () => {
   const { id } = useParams();
@@ -20,6 +21,8 @@ const SinglePage = () => {
   const product = productData.find((item) => item.id === productId);
   const dispatch = useDispatch();
   const wishes = useSelector((state) => state.wishlist.value);
+  const cartsInStore = useSelector(state => state.cart.value);
+
 
   const [mainImg, setMainImg] = useState(product.img);
   const [thumbnails, setThumbnails] = useState([
@@ -132,7 +135,27 @@ const SinglePage = () => {
             <p className="text-neutral-800 text-[20px] mt-[20px] font-semibold">
               {product.price} руб.
             </p>
-
+            {
+                        cartsInStore.some(w => w.id === product.id) ?
+                        <button
+                        className="rounded-[50px] border-[2px] md:text-[14px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] py-[5px] text-[#202020] 
+                      hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
+                      onClick={() => dispatch(addToCart(product))}
+                      >
+                     
+                        Добавлено в корзину
+                        
+                      </button> :
+                      
+                          <button
+                          className="rounded-[50px] border-[2px] md:text-[14px]  md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] 
+                            hover:border-[#07745E] duration-150   bg-[#088269] py-[5px] text-[#F8F7F3] lg:rounded-[50px] lg:px-5  hover:bg-[#066753] "
+                        onClick={() => dispatch(addToCart(product))}
+                        >
+                              Добавить в корзину
+                           
+                        </button> 
+                    }
             <hr className="mt-[15px]" />
             <p className="text-neutral-800 text-[20px] mt-[5px] font-semibold">
               О товаре

@@ -7,6 +7,7 @@ export const Links = [
   {
     id: 2,
     title: 'Производители',
+    to: 'manufactures'
   },
   {
     id: 3,
@@ -21,10 +22,12 @@ export const Links = [
   {
     id: 5,
     title: 'Акции',
+    to: 'stock'
   },
   {
     id: 6,
     title: 'Покупателям',
+    to: 'manufactures'
   },
   {
     id: 7,

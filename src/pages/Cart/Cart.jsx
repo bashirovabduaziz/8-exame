@@ -71,20 +71,32 @@ const totalPrice = calculateTotalPrice();
         <p className='md:text-[15px] text-[10px] font-thin lg:mt-[10px] text-[#7A7687]'>В наличии</p>
         <div className='lg:hidden lg:py-[10px]'>
           <p className='font-medium text-[13px] text-[#202020] md:text-[16px]'>{cart.price} руб.</p>
-          <div className='flex max-w-[85px] lg:max-w-[90px] items-center gap-[13px] border-[2px] lg:py-[5px] my-[5px] mt-[5px] px-[14px] rounded-full'>
-            <button disabled={cart.quantity <= 1} onClick={() => dispatch(decCart(cart))} className='text-[23px] flex items-center justify-center transition text-[#7A7687]'>-</button>
-            <span className=''>{cart.quantity}</span>
-            <button onClick={() => dispatch(incCart(cart))} className='text-[23px] flex items-center justify-center transition text-[#07745E]'>+</button>
-          </div>
+          <div className="">
+              <span className="border mt-[10px] rounded-full w-[85px] py-1 flex justify-center items-center gap-2">
+                <button className="p-1" disabled={cart.quantity <= 1} onClick={() => dispatch(decCart(cart))}>
+                  -
+                </button>
+                <p>{cart.quantity}</p>
+                <button className="p-1" onClick={() => dispatch(incCart(cart))}>
+                  +
+                </button>
+              </span>
+            </div>
         </div>
       </div>
       <div className='hidden lg:block mt-[15px]'>
         <p className='font-medium text-[#202020] lg:text-[18px]'>{cart.price} руб.</p>
-        <div className='flex max-w-[90px] items-center gap-[13px] border-[2px] py-[5px] mt-[10px] px-[14px] rounded-full'>
-          <button disabled={cart.quantity <= 1} onClick={() => dispatch(decCart(cart))} className='text-[23px] flex items-center justify-center transition text-[#7A7687]'>-</button>
-          <span className=''>{cart.quantity}</span>
-          <button onClick={() => dispatch(incCart(cart))} className='text-[23px] flex items-center justify-center transition text-[#07745E]'>+</button>
-        </div>
+        <div className="">
+              <span className="border mt-[10px] rounded-full w-[85px] py-1 flex justify-center items-center gap-2">
+                <button className="p-1" disabled={cart.quantity <= 1} onClick={() => dispatch(decCart(cart))}>
+                  -
+                </button>
+                <p>{cart.quantity}</p>
+                <button className="p-1" onClick={() => dispatch(incCart(cart))}>
+                  +
+                </button>
+              </span>
+            </div>
       </div>
       <div className="gap-[10px] px-[15px] mt-[15px] lg:block hidden items-center">
         <button className="">
@@ -124,7 +136,7 @@ const totalPrice = calculateTotalPrice();
         <div className="sm:w-[30%] bg-[#fff] mt-[15px] h-full border p-5 rounded-lg">
           <span className="flex justify-between items-center pb-3 border-b">
             <h2 className="text-[16px] font-semibold">Итого</h2>
-            <p className="text-[14px] font-semibold"> {totalPrice.toFixed(2)} руб.</p>
+            <p className="text-[14px] font-semibold"> ${totalPrice.toFixed(2)} руб.</p>
           </span>
           <span className="flex pt-2 justify-between">
             <h2 className="text-[12px]">

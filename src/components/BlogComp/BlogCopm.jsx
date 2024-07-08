@@ -30,7 +30,7 @@ const BlogComp = () => {
             Направления
             {openDirections && (
               <li className="md:w-[350px] md:ml-[-12px] md:mt-[20px] border-[2px] bg-[#F8F7F3] border-[#E5E2EE] p-[10px] rounded-[10px] mt-[5px] hidden md:block">
-                {/* Directions List */}
+             
                 <li className="text-neutral-800 text-[17px] font-normal">Реанимация</li>
                 <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Хирургия</li>
                 <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Офтальмология</li>
@@ -52,7 +52,7 @@ const BlogComp = () => {
           </li>
           {openDirections && (
             <li className="border-[2px] border-[#E5E2EE] p-[10px] rounded-[10px] mt-[5px] block md:hidden">
-              {/* Directions List for Mobile */}
+              
               <li className="text-neutral-800 text-[17px] font-normal">Реанимация</li>
               <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Хирургия</li>
               <li className="text-neutral-800 text-[17px] mt-[5px] font-normal">Офтальмология</li>
