@@ -14,6 +14,9 @@ import Favourites from '../../assets/favourites.svg'
 import Comparison from '../../assets/comparison.svg'
 import BreadCrumbs from '../../components/BreadCumps/BreadCrumbs';
 import { addToCart } from '../../context/cartSlice';
+import { toggleToComparison } from '../../context/comparisonSlice';
+import Comparison1 from '../../assets/Comparison2.svg'
+
 
 const SinglePage = () => {
   const { id } = useParams();
@@ -22,7 +25,7 @@ const SinglePage = () => {
   const dispatch = useDispatch();
   const wishes = useSelector((state) => state.wishlist.value);
   const cartsInStore = useSelector(state => state.cart.value);
-
+  const comparison = useSelector((state) => state.comparison.value);
 
   const [mainImg, setMainImg] = useState(product.img);
   const [thumbnails, setThumbnails] = useState([
@@ -83,9 +86,13 @@ const SinglePage = () => {
                     <img src={Favourites} className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px]" />
                   )}
                 </button>
-                <button className="">
-                  <img src={Comparison} className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px]" />
-                </button>
+                <button className=""  onClick={() => dispatch(toggleToComparison(product))}>
+                        {comparison.some((w) => w.id === product.id) ? (
+                             <img src={Comparison1} className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px]" />
+                          ) : (
+                            <img src={Comparison} className="lg:w-[35px] md:h-[25px] lg:h-[35px] md:w-[25px] h-[18px] w-[18px]" />
+                          )}
+                        </button>
               </div>
             </div>
             <img

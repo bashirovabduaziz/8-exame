@@ -19,7 +19,6 @@ import Manufactures from './pages/Manufacturers/Manufactures';
 import Office from './pages/OfficePage/Office';
 import Payment from './pages/Payment/Payment';
 import Personal from './pages/Personal/Personal';
-import Reviews from './pages/Reviews/Reviews';
 import Services from './pages/Services/Services';
 import Stock from './pages/Stock/Stock';
 import Vacancies from './pages/Vacancies/Vacancies';
@@ -61,7 +60,6 @@ const App = () => {
                 <Route path="/office" element={<Office />} />
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/personal" element={<Personal />} />
-                <Route path="/reviews" element={<Reviews />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/stock" element={<Stock />} />
                 <Route path="/vacancies" element={<Vacancies />} />

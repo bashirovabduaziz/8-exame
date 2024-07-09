@@ -8,65 +8,147 @@ import {
   Vkontakt,
 } from "./PersonalImgs";
 import { MdKeyboardArrowUp } from "react-icons/md";
-import { decCart, incCart, removeFromCart, clearCart } from '../../context/cartSlice';
 import { useSelector } from "react-redux";
-import EditModal from './EditModal';
+import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
+import ImageUploadModal from "./ImageUploadModal";
 
 const PersonalComp = () => {
-  const cartItems = useSelector(state => state.cart.value);
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
+  const cartItems = useSelector((state) => state.cart.value);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [profileImage, setProfileImage] = useState("");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isImageUploadModalOpen, setIsImageUploadModalOpen] = useState(false);
 
   useEffect(() => {
-    const userInformation = JSON.parse(localStorage.getItem('UserInformation'));
-    if (userInformation && userInformation.username) {
+    const userInformation = JSON.parse(localStorage.getItem("UserInformation"));
+    if (userInformation) {
       setUsername(userInformation.username);
-      setEmail(userInformation.email); 
+      setEmail(userInformation.email);
+      setProfileImage(userInformation.profileImage || "");
     }
   }, []);
+
   const calculateTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-};
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
 
-
-const handleDeleteModalOpen = () => {
+  const handleDeleteModalOpen = () => {
     setIsDeleteModalOpen(true);
   };
 
   const handleDeleteModalClose = () => {
     setIsDeleteModalOpen(false);
   };
-  
-const totalPrice = calculateTotalPrice();
- 
+
+  const handleEditModalOpen = () => {
+    setIsEditModalOpen(true);
+  };
+
+  const handleEditModalClose = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const handleImageUploadModalOpen = () => {
+    setIsImageUploadModalOpen(true);
+  };
+
+  const handleImageUploadModalClose = () => {
+    setIsImageUploadModalOpen(false);
+  };
 
   const handleEdit = (updatedUserInfo) => {
     setUsername(updatedUserInfo.username);
-    setEmail(updatedUserInfo.email); 
+    setEmail(updatedUserInfo.email);
+    localStorage.setItem(
+      "UserInformation",
+      JSON.stringify({
+        ...updatedUserInfo,
+        profileImage,
+      })
+    );
+    handleEditModalClose();
+  };
+
+  const handleImageUpload = (imageData) => {
+    setProfileImage(imageData);
+    localStorage.setItem(
+      "UserInformation",
+      JSON.stringify({
+        username,
+        email,
+        profileImage: imageData,
+      })
+    );
+    handleImageUploadModalClose();
   };
 
   const handleDelete = () => {
-    localStorage.removeItem('UserInformation');
+    localStorage.removeItem("UserInformation");
     setIsDeleteModalOpen(false);
-
-
-    
-    window.location.href = '/'; 
+    window.location.href = "/";
   };
+
+  const handleImageDelete = () => {
+    setProfileImage("");
+    localStorage.setItem(
+      "UserInformation",
+      JSON.stringify({
+        username,
+        email,
+        profileImage: "",
+      })
+    );
+  };
+
+  const totalPrice = calculateTotalPrice();
+
+
   return (
     <div className="max-w-[1300px] py-[60px] mx-auto px-5">
       <div className="flex flex-col gap-[40px] pb-[100px]">
         <div className="w-full flex lg:flex-row flex-col gap-6 lg:items-center">
-          <div className="w-[25%]">
-            <span className="w-[210px] h-[210px]  font-medium text-[#23473b] text-[120px] flex justify-center items-center rounded-full bg-[#e1efe6]">
-              {username.charAt(0).toUpperCase()}
-            </span>
+          <div className="w-[25%] relative group">
+            <div
+              className="w-[210px] h-[210px] flex-col font-medium text-[#23473b] text-[120px] flex justify-center items-center rounded-full bg-[#e1efe6] cursor-pointer"
+            
+            >
+              {profileImage ? (
+                <img
+                  src={profileImage}
+                  alt="Profile"
+                  className="w-full h-full rounded-full object-cover"
+                  
+                />
+              ) : (
+                username.charAt(0).toUpperCase()
+              )}
+            
+             </div>
+             {!profileImage && (
+      <button onClick={() => setIsImageUploadModalOpen(true)} >
+        <PenIcon />
+      </button>
+    )}
+            {profileImage && (
+              <div className="absolute inset-0  bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity w-[210px] h-[210px] flex-col font-medium text-[#23473b] flex justify-center items-center rounded-full bg-black cursor-pointer">
+             
+                <button
+                  onClick={handleImageDelete}
+                  className="text-white"
+                >
+                  Удалить
+                </button>
+              </div>
+            )}
           </div>
-          <div className="">
-            <h2 className="text-[18px] sm:text-[20px] md:text-[30px] text-[#202020] leading-[24px] md:leading-[36px]">
+          <div>
+          <h2 className="text-[18px] sm:text-[20px] md:text-[30px] text-[#202020] leading-[24px] md:leading-[36px]">
               {username}
             </h2>
             <div className="flex gap-2 pt-[15px] pb-[30px]">
@@ -352,8 +434,23 @@ const totalPrice = calculateTotalPrice();
           </div>
         </div>
       </div>
-      <EditModal isOpen={isEditModalOpen} setIsOpen={setIsEditModalOpen} onEdit={handleEdit} />
-      <DeleteModal isOpen={isDeleteModalOpen} setIsOpen={setIsDeleteModalOpen} handleDelete={handleDelete} />
+      <EditModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        onSave={handleEdit}
+        initialUsername={username}
+        initialEmail={email}
+      />
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onClose={handleDeleteModalClose}
+        onDelete={handleDelete}
+      />
+      <ImageUploadModal
+        isOpen={isImageUploadModalOpen}
+        onClose={() => setIsImageUploadModalOpen(false)}
+        onUpload={handleImageUpload}
+      />
     </div>
   );
 };
