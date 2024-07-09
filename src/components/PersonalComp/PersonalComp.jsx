@@ -9,49 +9,53 @@ import {
 } from "./PersonalImgs";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { useSelector } from "react-redux";
-import EditModal from "./EditModal";
+import EditModal from './EditModal';
 import DeleteModal from "./DeleteModal";
 import ImageUploadModal from "./ImageUploadModal";
 
+
 const PersonalComp = () => {
-  const cartItems = useSelector((state) => state.cart.value);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [profileImage, setProfileImage] = useState("");
+  const cartItems = useSelector(state => state.cart.value);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isImageUploadModalOpen, setIsImageUploadModalOpen] = useState(false);
+  const [profileImage, setProfileImage] = useState("");
 
   useEffect(() => {
-    const userInformation = JSON.parse(localStorage.getItem("UserInformation"));
-    if (userInformation) {
+    const userInformation = JSON.parse(localStorage.getItem('UserInformation'));
+    if (userInformation && userInformation.username) {
       setUsername(userInformation.username);
-      setEmail(userInformation.email);
+      setEmail(userInformation.email); 
       setProfileImage(userInformation.profileImage || "");
     }
   }, []);
-
   const calculateTotalPrice = () => {
-    return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-  };
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+};
 
-  const handleDeleteModalOpen = () => {
+
+const handleDeleteModalOpen = () => {
     setIsDeleteModalOpen(true);
   };
 
   const handleDeleteModalClose = () => {
     setIsDeleteModalOpen(false);
   };
+  
+const totalPrice = calculateTotalPrice();
+ 
 
-  const handleEditModalOpen = () => {
-    setIsEditModalOpen(true);
+  const handleEdit = (updatedUserInfo) => {
+    setUsername(updatedUserInfo.username);
+    setEmail(updatedUserInfo.email); 
   };
 
-  const handleEditModalClose = () => {
-    setIsEditModalOpen(false);
+  const handleDelete = () => {
+    localStorage.removeItem('UserInformation');
+    setIsDeleteModalOpen(false);
+    window.location.href = '/'; 
   };
 
   const handleImageUploadModalOpen = () => {
@@ -60,19 +64,6 @@ const PersonalComp = () => {
 
   const handleImageUploadModalClose = () => {
     setIsImageUploadModalOpen(false);
-  };
-
-  const handleEdit = (updatedUserInfo) => {
-    setUsername(updatedUserInfo.username);
-    setEmail(updatedUserInfo.email);
-    localStorage.setItem(
-      "UserInformation",
-      JSON.stringify({
-        ...updatedUserInfo,
-        profileImage,
-      })
-    );
-    handleEditModalClose();
   };
 
   const handleImageUpload = (imageData) => {
@@ -88,12 +79,6 @@ const PersonalComp = () => {
     handleImageUploadModalClose();
   };
 
-  const handleDelete = () => {
-    localStorage.removeItem("UserInformation");
-    setIsDeleteModalOpen(false);
-    window.location.href = "/";
-  };
-
   const handleImageDelete = () => {
     setProfileImage("");
     localStorage.setItem(
@@ -106,14 +91,11 @@ const PersonalComp = () => {
     );
   };
 
-  const totalPrice = calculateTotalPrice();
-
-
   return (
     <div className="max-w-[1300px] py-[60px] mx-auto px-5">
       <div className="flex flex-col gap-[40px] pb-[100px]">
         <div className="w-full flex lg:flex-row flex-col gap-6 lg:items-center">
-          <div className="w-[25%] relative group">
+        <div className="w-[25%] relative group">
             <div
               className="w-[210px] h-[210px] flex-col font-medium text-[#23473b] text-[120px] flex justify-center items-center rounded-full bg-[#e1efe6] cursor-pointer"
             
@@ -147,8 +129,8 @@ const PersonalComp = () => {
               </div>
             )}
           </div>
-          <div>
-          <h2 className="text-[18px] sm:text-[20px] md:text-[30px] text-[#202020] leading-[24px] md:leading-[36px]">
+          <div className="">
+            <h2 className="text-[18px] sm:text-[20px] md:text-[30px] text-[#202020] leading-[24px] md:leading-[36px]">
               {username}
             </h2>
             <div className="flex gap-2 pt-[15px] pb-[30px]">
@@ -278,7 +260,8 @@ const PersonalComp = () => {
             <div className="p-[30px]">
               <span className="flex justify-between items-center ">
                 <h2 className="text-[12px] sm:text-[14px] pt-2 lg:text-[16px] font-medium">
-                  Заказ № 3456-09 от 12 марта 2023, 2 товара на сумму  {totalPrice.toFixed(2)} руб.
+                  Заказ № 3456-09 от 12 марта 2023, 2 товара на сумму 900 000
+                  руб.
                 </h2>
                 <MdKeyboardArrowUp />
               </span>
@@ -434,18 +417,8 @@ const PersonalComp = () => {
           </div>
         </div>
       </div>
-      <EditModal
-        isOpen={isEditModalOpen}
-        onClose={() => setIsEditModalOpen(false)}
-        onSave={handleEdit}
-        initialUsername={username}
-        initialEmail={email}
-      />
-      <DeleteModal
-        isOpen={isDeleteModalOpen}
-        onClose={handleDeleteModalClose}
-        onDelete={handleDelete}
-      />
+      <EditModal isOpen={isEditModalOpen} setIsOpen={setIsEditModalOpen} onEdit={handleEdit} />
+      <DeleteModal isOpen={isDeleteModalOpen} setIsOpen={setIsDeleteModalOpen} handleDelete={handleDelete} />
       <ImageUploadModal
         isOpen={isImageUploadModalOpen}
         onClose={() => setIsImageUploadModalOpen(false)}
