@@ -17,13 +17,16 @@ import {
 } from 'react-icons/io5';
 import Favourites from '../../assets/favourites.svg'
 import Comparison from '../../assets/comparison.svg'
+import Comparison1 from '../../assets/Comparison2.svg'
 import {addToCart} from '../../context/cartSlice'
 import { toggleToWishes } from '../../context/wishlistSlice';
+import { toggleToComparison } from '../../context/comparisonSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const ProductsData = ({ category }) => {
   const wishes = useSelector((state) => state.wishlist.value);
+  const comparison = useSelector((state) => state.comparison.value);
   const cartsInStore = useSelector(state => state.cart.value);
   let sliderRef = useRef(null);
   const dispatch = useDispatch();
@@ -112,8 +115,12 @@ const ProductsData = ({ category }) => {
                         {product.category}
                       </p>
                       <div className="gap-[6px] flex items-center">
-                        <button className="">
-                          <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                        <button className=""  onClick={() => dispatch(toggleToComparison(product))}>
+                        {comparison.some((w) => w.id === product.id) ? (
+                             <img src={Comparison1} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          ) : (
+                            <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          )}
                         </button>
                         <button
                           onClick={() => dispatch(toggleToWishes(product))}

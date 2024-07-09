@@ -10,11 +10,13 @@ function EditModal({ isOpen, setIsOpen, onEdit }) {
   });
 
   useEffect(() => {
-    const userInformation = JSON.parse(localStorage.getItem('UserInformation'));
-    if (userInformation) {
-      setUserInfo(userInformation);
+    if (isOpen) {
+      const userInformation = JSON.parse(localStorage.getItem('UserInformation'));
+      if (userInformation) {
+        setUserInfo(userInformation);
+      }
     }
-  }, []);
+  }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +27,7 @@ function EditModal({ isOpen, setIsOpen, onEdit }) {
       password: e.target.password.value,
     };
     localStorage.setItem('UserInformation', JSON.stringify(updatedUserInfo));
+    setUserInfo(updatedUserInfo);  // update local state immediately
     setIsOpen(false);
     onEdit(updatedUserInfo);
     toast.success('Data updated successfully');

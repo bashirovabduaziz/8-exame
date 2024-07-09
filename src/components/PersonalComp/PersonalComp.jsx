@@ -51,6 +51,9 @@ const totalPrice = calculateTotalPrice();
   const handleDelete = () => {
     localStorage.removeItem('UserInformation');
     setIsDeleteModalOpen(false);
+
+
+    
     window.location.href = '/'; 
   };
   return (
@@ -193,8 +196,7 @@ const totalPrice = calculateTotalPrice();
             <div className="p-[30px]">
               <span className="flex justify-between items-center ">
                 <h2 className="text-[12px] sm:text-[14px] pt-2 lg:text-[16px] font-medium">
-                  Заказ № 3456-09 от 12 марта 2023, 2 товара на сумму 900 000
-                  руб.
+                  Заказ № 3456-09 от 12 марта 2023, 2 товара на сумму  {totalPrice.toFixed(2)} руб.
                 </h2>
                 <MdKeyboardArrowUp />
               </span>
