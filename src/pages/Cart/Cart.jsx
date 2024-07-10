@@ -7,10 +7,14 @@ import Comparison from '../../assets/comparison.svg'
 import { IoHeart } from 'react-icons/io5';
 import { toggleToWishes } from '../../context/wishlistSlice';
 import Cross from '../../assets/cross.svg'
+import { Link } from 'react-router-dom';
+import Comparison1 from '../../assets/Comparison2.svg'
+import { toggleToComparison } from '../../context/comparisonSlice';
 
 const Cart = () => {
   const cartItems = useSelector(state => state.cart.value);
   const wishes = useSelector((state) => state.wishlist.value);
+  const comparison = useSelector((state) => state.comparison.value);
   const dispatch = useDispatch();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,9 +52,13 @@ const totalPrice = calculateTotalPrice();
             {cart.category}
           </p>
           <div className="gap-[6px] flex items-center lg:hidden">
-            <button className="">
-              <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
-            </button>
+          <button className=""  onClick={() => dispatch(toggleToComparison(cart))}>
+                        {comparison.some((w) => w.id === cart.id) ? (
+                             <img src={Comparison1} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          ) : (
+                            <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          )}
+                        </button>
             <button
               onClick={() => dispatch(toggleToWishes(cart))}
             >
@@ -99,9 +107,13 @@ const totalPrice = calculateTotalPrice();
             </div>
       </div>
       <div className="gap-[10px] px-[15px] mt-[15px] lg:block hidden items-center">
-        <button className="">
-          <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
-        </button>
+      <button className=""  onClick={() => dispatch(toggleToComparison(cart))}>
+                        {comparison.some((w) => w.id === cart.id) ? (
+                             <img src={Comparison1} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          ) : (
+                            <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          )}
+                        </button>
         <button
           className=""
           onClick={() => dispatch(toggleToWishes(cart))}
@@ -130,9 +142,33 @@ const totalPrice = calculateTotalPrice();
     <div>
       <BreadCrumbs />
       <div className='max-w-[1300px] mx-auto px-5 py-10 md:flex justify-between'>
-        <div>
+       {cartItems.length ? ( <div>
           {cart}
-        </div>
+        </div>) : (<div className="flex">
+          <div className="mt-[10px]">
+            <h2 className="text-[18px] sm:text-[20px] md:text-[34px] md:leading-[36px]">
+              Не добавлено товаров в корзину 
+            </h2>
+            <p className="text-[12px] sm:text-[14px] md:text-[18px] pt-[10px] md:pt-[20px]  pb-[10px] w-[80%] md:w-[50%]  text-[#7A7687]">
+              Вы можете перейти на главную страницу или воспользоваться
+              каталогом товаров
+            </p>
+            <span className="flex gap-2">
+              <Link
+                to={"/"}
+                className=" px-5 py-2 rounded-[50px] border-[2px] border-[#D5D1E1] text-[#202020] xl:block hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
+              >
+                На главную
+              </Link>
+              <Link
+                to={"/catalog"}
+                className="rounded-full  px-5 py-2 border-[1px] bg-[#088269] p-[9px] text-[#F8F7F3] lg:rounded-[50px]   hover:bg-[#066753] duration-150"
+              >
+                В каталог
+              </Link>
+            </span>
+          </div>
+        </div>)}
         <div className="sm:w-[30%] bg-[#fff] mt-[15px] h-full border p-5 rounded-lg">
           <span className="flex justify-between items-center pb-3 border-b">
             <h2 className="text-[16px] font-semibold">Итого</h2>

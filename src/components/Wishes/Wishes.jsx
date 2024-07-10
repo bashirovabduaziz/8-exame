@@ -10,10 +10,14 @@ import { FaTableCellsLarge } from "react-icons/fa6";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Favourites from '../../assets/favourites.svg'
 import Comparison from '../../assets/comparison.svg'
+import { toggleToComparison } from '../../context/comparisonSlice';
+import Comparison1 from '../../assets/Comparison2.svg'
 
 const Wishes = () => {
   const wishes = useSelector((state) => state.wishlist.value);
   const cartsInStore = useSelector(state => state.cart.value);
+  const comparison = useSelector((state) => state.comparison.value);
+
   const dispatch = useDispatch();
   console.log(wishes);
  
@@ -46,9 +50,13 @@ const Wishes = () => {
               {product.category}
             </p>
             <div className="gap-[6px] flex items-center">
-              <button className="">
-                <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
-              </button>
+            <button className=""  onClick={() => dispatch(toggleToComparison(product))}>
+                        {comparison.some((w) => w.id === product.id) ? (
+                             <img src={Comparison1} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          ) : (
+                            <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          )}
+                        </button>
               <button
                 onClick={() => dispatch(toggleToWishes(product))}
               >
@@ -133,9 +141,13 @@ const wishline = wishes.map((wish) => (
                 {wish.price}руб.
               </p>
             <div className="gap-[6px] flex items-center mt-[10px]">
-            <button className="">
-                  <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
-                </button>
+            <button className=""  onClick={() => dispatch(toggleToComparison(wish))}>
+                        {comparison.some((w) => w.id === wish.id) ? (
+                             <img src={Comparison1} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          ) : (
+                            <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          )}
+                        </button>
                 <button onClick={() => dispatch(toggleToWishes(wish))}>
                   {' '}
                   {wishes.some((w) => w.id === wish.id) ? (
@@ -193,11 +205,14 @@ const wishline = wishes.map((wish) => (
       <h1 className="text-[25px] text-[#202020] font-bold">Избранное</h1>
       <div className=" lg:flex lg:justify-between mt-[10px]">
         <div>
-          <p className="text-[18px] text-[#202020] ">
+        {wishes.length ? (
+            <p className="text-[18px] text-[#202020] ">
             Все Товары ({wishes.length})
           </p>
+        ) : ('')}
         </div>
-        <div className="flex-col ">
+        {wishes.length ? (
+          <div className="flex-col ">
           <div className=" max-w-[1020px] border-[2px] border-[#E5E2EE] rounded-[10px] h-[50px] p-[11px] flex items-center justify-between">
           <select className='bg-[#F8F7F3]'>
             <option value="Все Товары ">Все Товары </option>
@@ -241,6 +256,31 @@ const wishline = wishes.map((wish) => (
           )}
           </div>
         </div>
+        ) : ( <div className="flex">
+          <div className="lg:mt-[-45px]">
+            <h2 className="text-[18px] sm:text-[20px] md:text-[34px] md:leading-[36px]">
+              Не добавлено товаров в избранное
+            </h2>
+            <p className="text-[12px] sm:text-[14px] md:text-[18px] pt-[10px] md:pt-[20px]  pb-[10px] w-[80%] md:w-[50%]  text-[#7A7687]">
+              Вы можете перейти на главную страницу или воспользоваться
+              каталогом товаров
+            </p>
+            <span className="flex gap-2">
+              <Link
+                to={"/"}
+                className=" px-5 py-2 rounded-[50px] border-[2px] border-[#D5D1E1] text-[#202020] xl:block hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
+              >
+                На главную
+              </Link>
+              <Link
+                to={"/catalog"}
+                className="rounded-full  px-5 py-2 border-[1px] bg-[#088269] p-[9px] text-[#F8F7F3] lg:rounded-[50px]   hover:bg-[#066753] duration-150"
+              >
+                В каталог
+              </Link>
+            </span>
+          </div>
+        </div>)}
       </div>
     </div>
   );

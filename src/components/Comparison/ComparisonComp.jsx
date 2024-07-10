@@ -205,11 +205,14 @@ const wishline = comparison.map((wish) => (
       <h1 className="text-[25px] text-[#202020] font-bold">Сравнение товаров</h1>
       <div className=" lg:flex lg:justify-between mt-[10px]">
         <div>
-          <p className="text-[18px] text-[#202020] ">
-            Все Товары ({comparison.length})
-          </p>
+         {comparison.length ? (
+           <p className="text-[18px] text-[#202020] ">
+           Все Товары ({comparison.length})
+         </p>
+         ) : ('')}
         </div>
-        <div className="flex-col ">
+        {comparison.length ? (
+          <div className="flex-col ">
           <div className=" max-w-[1020px] border-[2px] border-[#E5E2EE] rounded-[10px] h-[50px] p-[11px] flex items-center justify-between">
           <select className='bg-[#F8F7F3]'>
             <option value="Все Товары ">Все Товары </option>
@@ -253,6 +256,31 @@ const wishline = comparison.map((wish) => (
           )}
           </div>
         </div>
+        ) : (<div className="flex">
+          <div className="lg:mt-[-45px]">
+            <h2 className="text-[18px] sm:text-[20px] md:text-[34px] md:leading-[36px]">
+              Не добавлено товаров в сравнение 
+            </h2>
+            <p className="text-[12px] sm:text-[14px] md:text-[18px] pt-[10px] md:pt-[20px]  pb-[10px] w-[80%] md:w-[50%]  text-[#7A7687]">
+              Вы можете перейти на главную страницу или воспользоваться
+              каталогом товаров
+            </p>
+            <span className="flex gap-2">
+              <Link
+                to={"/"}
+                className=" px-5 py-2 rounded-[50px] border-[2px] border-[#D5D1E1] text-[#202020] xl:block hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
+              >
+                На главную
+              </Link>
+              <Link
+                to={"/catalog"}
+                className="rounded-full  px-5 py-2 border-[1px] bg-[#088269] p-[9px] text-[#F8F7F3] lg:rounded-[50px]   hover:bg-[#066753] duration-150"
+              >
+                В каталог
+              </Link>
+            </span>
+          </div>
+        </div>)}
       </div>
     </div>
   );
