@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import { productData } from '../../static/data';
 import { Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
-
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { CircularProgress } from '@mui/material';
 import { IoHeart } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import LazyLoad from 'react-lazyload';
@@ -19,12 +15,16 @@ import BreadCrumbs from '../../components/BreadCumps/BreadCrumbs';
 import Brands from '../../components/Brands/Brands';
 import Quetions from '../../components/Quetions/Quetions';
 import Subscribe from '../../components/Subscribe/Subscribe';
+import { toggleToComparison } from '../../context/comparisonSlice';
+import Comparison1 from '../../assets/Comparison2.svg'
+
 
 const Stock = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [openDirections, setOpenDirections] = useState(false);
   const wishes = useSelector((state) => state.wishlist.value);
+  const comparison = useSelector((state) => state.comparison.value);
   const cartsInStore = useSelector(state => state.cart.value);
   const dispatch = useDispatch();
 
@@ -138,7 +138,7 @@ const Stock = () => {
         </div>
         <div className="grid grid-cols-2 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-3 md:gap-[3px] gap-4">
         
-           { filteredProducts.map((product, ) => (
+           { filteredProducts.map((product) => (
               <div className="px-1 md:px-2 mt-[5px]" key={product.id}>
               <LazyLoad height={400} once>
                 <div className="flex flex-col items-center rounded-[10px] border-[1px] md:h-[400px] lg:h-[440px] sm:h-[300px] gap-[20px]">
@@ -152,8 +152,12 @@ const Stock = () => {
                         {product.category}
                       </p>
                       <div className="gap-[6px] flex items-center">
-                        <button className="">
-                          <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                      <button className=""  onClick={() => dispatch(toggleToComparison(product))}>
+                        {comparison.some((w) => w.id === product.id) ? (
+                             <img src={Comparison1} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          ) : (
+                            <img src={Comparison} className="lg:w-[25px] md:h-[18px] lg:h-[25px] md:w-[18px] h-[14px] w-[14px]" />
+                          )}
                         </button>
                         <button
                           onClick={() => dispatch(toggleToWishes(product))}

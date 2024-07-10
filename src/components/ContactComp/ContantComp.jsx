@@ -46,8 +46,8 @@ const schema = yup.object().shape({
       <div className="bg-[#f8f7f3]">
         <div className="max-w-[1300px] mx-auto px-5">
           <div className="grid md:grid-cols-2 gap-[20px]">
-            <div className="bg-[#fff] p-[30px]  rounded-lg">
-              <h3 className="text-[30px] leading-[36px] pb-2">
+            <div className="flex flex-col rounded-[10px] border-[1px] border-[#E5E2EE] bg-white p-5 md:p-[40px]">
+              <h3 className="mb-[10px] text-[18px] font-medium text-[#202020] sm:mb-5 sm:text-[20px] md:mb-[25px] md:text-[30px]">
                 ООО Глобал Медикал Трейд
               </h3>
               <span className="flex gap-3.5">
@@ -55,7 +55,7 @@ const schema = yup.object().shape({
                   <KontactIcon1 />
                 </div>
                 <div className="">
-                  <h3 className="text-[#7A7687] text-[16px]">
+                  <h3 className="block text-[12px] text-[#7A7687] sm:text-[14px]  md:text-[16px]">
                     Юридический адрес:
                   </h3>
                   <p>Россия, г. Москва, ул. Докукина, 8, стр. 2</p>
@@ -66,7 +66,7 @@ const schema = yup.object().shape({
                   <KontactIcon1 />
                 </div>
                 <div className="">
-                  <h3 className="text-[#7A7687] text-[16px]">
+                  <h3 className="block text-[12px] text-[#7A7687] sm:text-[14px]  md:text-[16px]">
                     Фактический адрес:
                   </h3>
                   <p>Россия, г. Москва, ул. Докукина, 8, стр. 2</p>
@@ -77,7 +77,7 @@ const schema = yup.object().shape({
                   <KontactIcon2 />
                 </div>
                 <div className="">
-                  <h3 className="text-[#7A7687] text-[16px]">Режим работы:</h3>
+                  <h3 className="block text-[12px] text-[#7A7687] sm:text-[14px]  md:text-[16px]">Режим работы:</h3>
                   <p>Пн-Пт с 09:00-19:00</p>
                   <p> Сб-Вс - выходной</p>
                 </div>
@@ -90,7 +90,7 @@ const schema = yup.object().shape({
                   <KontactIcon3 />
                 </div>
                 <div className="">
-                  <h3 className="text-[#7A7687] text-[16px]">Телефоны:</h3>
+                  <h3 className="block text-[12px] text-[#7A7687] sm:text-[14px]  md:text-[16px]">Телефоны:</h3>
                   <span className="flex md:gap-4 xl:gap-6 flex-wrap">
                     <p> 8-800-000-00-00 </p>
                     <p>+7-000-000-00-00</p>
@@ -103,7 +103,7 @@ const schema = yup.object().shape({
                   <KontactIcon4 />
                 </div>
                 <div className="">
-                  <h3 className="text-[#7A7687] text-[16px]">Пишиовые знания JavaScript и React;те:</h3>
+                  <h3 className="block text-[12px] text-[#7A7687] sm:text-[14px]  md:text-[16px]">Пишите:  </h3>
                   <p>info@mail.ru</p>
                 </div>
               </span>
@@ -141,7 +141,7 @@ const schema = yup.object().shape({
         <h3 className="mb-[10px] text-[18px] font-medium text-[#202020] sm:mb-5 sm:text-[20px] md:mb-[25px] md:text-[30px]">
           Остались вопросы?
         </h3>
-        <span className="mb-[30px] block w-full max-w-[417px] text-[12px] text-[#7A7687] sm:text-[14px] md:mb-[40px] md:text-[16px]">
+        <span className="pt-1 block w-full max-w-[417px] text-[12px] text-[#7A7687] sm:text-[14px] md:mb-[40px] md:text-[16px]">
           Задайте их по номеру телефона +7 (495) 000-00-00 или оставьте свои
           координаты и наш менеджер перезвонит вам через 10 минут
         </span>

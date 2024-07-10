@@ -145,7 +145,7 @@ const SinglePage = () => {
             {
                         cartsInStore.some(w => w.id === product.id) ?
                         <button
-                        className="rounded-[50px] border-[2px] md:text-[14px] border-[#D5D1E1] md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] py-[5px] text-[#202020] 
+                        className="rounded-[50px]  border-[2px] md:text-[16px] border-[#D5D1E1] p-2 mt-[10px]  text-[14px] lg:text-[18px]  text-[#202020] 
                       hover:border-[#07745E] duration-150 focus:bg-[#E1EFE6] focus:text-[#07745E]"
                       onClick={() => dispatch(addToCart(product))}
                       >
@@ -155,8 +155,8 @@ const SinglePage = () => {
                       </button> :
                       
                           <button
-                          className="rounded-[50px] border-[2px] md:text-[14px]  md:px-5 md:mt-[10px] px-2 text-[8px] lg:text-[18px] 
-                            hover:border-[#07745E] duration-150   bg-[#088269] py-[5px] text-[#F8F7F3] lg:rounded-[50px] lg:px-5  hover:bg-[#066753] "
+                          className="rounded-[50px] border-[2px] md:text-[18px]  p-2 mt-[10px] text-[14px] lg:text-[18px] 
+                            hover:border-[#07745E] duration-150   bg-[#088269]  text-[#F8F7F3] lg:rounded-[50px]  hover:bg-[#066753] "
                         onClick={() => dispatch(addToCart(product))}
                         >
                               Добавить в корзину
