@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import {
   FaceBook,
@@ -23,6 +24,7 @@ const PersonalComp = () => {
   const [isImageUploadModalOpen, setIsImageUploadModalOpen] = useState(false);
   const [profileImage, setProfileImage] = useState("");
 
+ 
   useEffect(() => {
     const userInformation = JSON.parse(localStorage.getItem('UserInformation'));
     if (userInformation && userInformation.username) {
@@ -31,12 +33,12 @@ const PersonalComp = () => {
       setProfileImage(userInformation.profileImage || "");
     }
   }, []);
+
   const calculateTotalPrice = () => {
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-};
+  };
 
-
-const handleDeleteModalOpen = () => {
+  const handleDeleteModalOpen = () => {
     setIsDeleteModalOpen(true);
   };
 
@@ -44,7 +46,7 @@ const handleDeleteModalOpen = () => {
     setIsDeleteModalOpen(false);
   };
   
-const totalPrice = calculateTotalPrice();
+  const totalPrice = calculateTotalPrice();
  
 
   const handleEdit = (updatedUserInfo) => {
@@ -91,35 +93,31 @@ const totalPrice = calculateTotalPrice();
     );
   };
 
-  return (
+  return  (
     <div className="max-w-[1300px] py-[60px] mx-auto px-5">
       <div className="flex flex-col gap-[40px] pb-[100px]">
         <div className="w-full flex lg:flex-row flex-col gap-6 lg:items-center">
-        <div className="w-[25%] relative group">
+          <div className="w-[25%] relative group">
             <div
               className="w-[210px] h-[210px] flex-col font-medium text-[#23473b] text-[120px] flex justify-center items-center rounded-full bg-[#e1efe6] cursor-pointer"
-            
             >
               {profileImage ? (
                 <img
                   src={profileImage}
                   alt="Profile"
                   className="w-full h-full rounded-full object-cover"
-                  
                 />
               ) : (
                 username.charAt(0).toUpperCase()
               )}
-            
-             </div>
-             {!profileImage && (
-      <button onClick={() => setIsImageUploadModalOpen(true)} >
-        <PenIcon />
-      </button>
-    )}
+            </div>
+            {!profileImage && (
+              <button onClick={handleImageUploadModalOpen}>
+                <PenIcon />
+              </button>
+            )}
             {profileImage && (
-              <div className="absolute inset-0  bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity w-[210px] h-[210px] flex-col font-medium text-[#23473b] flex justify-center items-center rounded-full bg-black cursor-pointer">
-             
+              <div className="absolute inset-0 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity w-[210px] h-[210px] flex-col font-medium text-[#23473b] flex justify-center items-center rounded-full bg-black cursor-pointer">
                 <button
                   onClick={handleImageDelete}
                   className="text-white"
@@ -421,8 +419,8 @@ const totalPrice = calculateTotalPrice();
       <DeleteModal isOpen={isDeleteModalOpen} setIsOpen={setIsDeleteModalOpen} handleDelete={handleDelete} />
       <ImageUploadModal
         isOpen={isImageUploadModalOpen}
-        onClose={() => setIsImageUploadModalOpen(false)}
-        onUpload={handleImageUpload}
+        onClose={handleImageUploadModalClose}
+        onSubmit={handleImageUpload}
       />
     </div>
   );
